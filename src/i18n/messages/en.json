@@ -452,14 +452,16 @@
   },
   "auth": {
     "title": "Sign in",
-    "subtitle": "We'll send a magic link to your email",
+    "subtitle": "Continue with Google or get a magic link by email",
     "emailLabel": "Email address",
     "emailPlaceholder": "your@email.com",
     "send": "Send me a link",
     "sending": "Sending",
     "checkInbox": "Open your email and click the link.",
     "error": "Failed to send. Try again.",
-    "errorInvalidEmail": "Invalid email address"
+    "errorInvalidEmail": "Invalid email address",
+    "continueWithGoogle": "Continue with Google",
+    "or": "or"
   },
   "setup": {
     "title": "Initial setup required",

@@ -486,14 +486,16 @@
   },
   "auth": {
     "title": "התחברות",
-    "subtitle": "נשלח אליך קישור קסום למייל",
+    "subtitle": "המשך עם Google או קבל קישור קסום למייל",
     "emailLabel": "כתובת מייל",
     "emailPlaceholder": "your@email.com",
     "send": "שלח לי קישור",
     "sending": "שולח",
     "checkInbox": "פתח את המייל שלך ולחץ על הקישור.",
     "error": "השליחה נכשלה. נסה שוב.",
-    "errorInvalidEmail": "כתובת מייל לא תקינה"
+    "errorInvalidEmail": "כתובת מייל לא תקינה",
+    "continueWithGoogle": "המשך עם Google",
+    "or": "או"
   },
   "setup": {
     "title": "הגדרת ראשונית נדרשת",
