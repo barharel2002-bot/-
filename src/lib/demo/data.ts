@@ -245,6 +245,7 @@ export const DEMO_MIRROR: MirrorData = {
   })),
   channelUploads: [],
   hasAnyData: true,
+  dominantTone: { tone: 'inspirational', rationale: 'Most posts this week leaned into "you can do this" energy.' },
 };
 
 // ===== Analytics =====
