@@ -10,6 +10,15 @@ export interface ProfileRow {
   reminder_frequency: ReminderFrequency;
   push_subscription: object | null;
   ai_monthly_budget_cents: number;
+  // YouTube channel link (added by 2026-05-05 migration)
+  youtube_channel_url: string | null;
+  youtube_channel_id: string | null;
+  youtube_uploads_playlist_id: string | null;
+  youtube_channel_title: string | null;
+  youtube_channel_thumbnail: string | null;
+  youtube_synced_at: string | null;
+  youtube_tone_cache: object | null;
+  youtube_insights_cache: object | null;
   created_at: string;
   updated_at: string;
 }
