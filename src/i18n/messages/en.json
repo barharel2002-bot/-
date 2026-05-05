@@ -378,6 +378,8 @@
   "analytics": {
     "title": "Private metrics",
     "subtitle": "Enter the numbers the public YouTube API does not expose — CTR, retention, watch time. Public stats like views and likes are fetched automatically on the \"Channel analysis\" page.",
+    "insights": "AI insights",
+    "growth_30d": "Growth — 30 days",
     "empty": {
       "title": "No data to analyze yet",
       "subtitle": "After you mark an idea as published, come here to log views, likes, and shares."
