@@ -32,7 +32,7 @@ const FEATURES: { key: FeatureKey; href: string; icon: typeof Lightbulb }[] = [
   { key: 'ideas', href: '/ideas', icon: Lightbulb },
   { key: 'channels', href: '/channels', icon: TrendingUp },
   { key: 'analyze', href: '/analyze', icon: Video },
-  { key: 'swipe', href: '/swipe/videos', icon: ArrowLeftRight },
+  { key: 'swipe', href: '/swipe', icon: ArrowLeftRight },
   { key: 'mirror', href: '/mirror', icon: Eye },
   { key: 'learn', href: '/learn', icon: BookOpen },
   { key: 'copy', href: '/copy', icon: PenLine },

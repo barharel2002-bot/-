@@ -36,7 +36,7 @@ const SIDEBAR_ITEMS: NavItem[] = [
   { href: '/analyze', labelKey: 'analyze', icon: Video },
   { href: '/channels', labelKey: 'channels', icon: TrendingUp },
   { href: '/analytics', labelKey: 'analytics', icon: BarChart3 },
-  { href: '/swipe/videos', labelKey: 'swipe', icon: ArrowLeftRight },
+  { href: '/swipe', labelKey: 'swipe', icon: ArrowLeftRight },
   { href: '/learn', labelKey: 'learn', icon: BookOpen },
   { href: '/settings', labelKey: 'settings', icon: SettingsIcon },
 ];
