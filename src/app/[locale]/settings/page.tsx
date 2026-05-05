@@ -1,19 +1,12 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import {
-  isSupabaseConfigured,
-  isYouTubeOAuthConfigured,
-  isInstagramOAuthConfigured,
-  isTikTokOAuthConfigured,
-} from '@/lib/config';
+import { isSupabaseConfigured } from '@/lib/config';
 import { DemoBanner } from '@/components/shared/demo-banner';
 import { fetchProfile, fetchUserEmail } from '@/lib/settings/queries';
 import { WhyForm } from '@/components/settings/why-form';
 import { PushToggle } from '@/components/settings/push-toggle';
 import { AccountCard } from '@/components/settings/account-card';
 import { BudgetCard } from '@/components/settings/budget-card';
-import { ConnectionsCard } from '@/components/settings/connections-card';
-import { fetchConnections } from '@/lib/channels/connections';
 import { getBudgetStatus } from '@/lib/ai/budget';
 import { DEMO_PROFILE } from '@/lib/demo/data';
 import type { BudgetStatus } from '@/lib/ai/budget';
@@ -37,20 +30,12 @@ export default async function SettingsPage({
   setRequestLocale(locale);
 
   const demo = !isSupabaseConfigured();
-  const [profile, email, budget, connections] = demo
-    ? [DEMO_PROFILE, 'demo@creator-mode.local', DEMO_BUDGET, []]
-    : await Promise.all([
-        fetchProfile(),
-        fetchUserEmail(),
-        getBudgetStatus(),
-        fetchConnections(),
-      ]);
+  const [profile, email, budget] = demo
+    ? [DEMO_PROFILE, 'demo@creator-mode.local', DEMO_BUDGET]
+    : await Promise.all([fetchProfile(), fetchUserEmail(), getBudgetStatus()]);
 
   const vapidKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? null;
   const hasSubscription = !!profile?.push_subscription;
-  const youtubeOAuthConfigured = isYouTubeOAuthConfigured();
-  const instagramOAuthConfigured = isInstagramOAuthConfigured();
-  const tiktokOAuthConfigured = isTikTokOAuthConfigured();
 
   return (
     <div className="space-y-8 animate-fade-in">
@@ -64,13 +49,6 @@ export default async function SettingsPage({
       />
 
       <PushToggle vapidPublicKey={vapidKey} hasSubscription={hasSubscription} />
-
-      <ConnectionsCard
-        connections={connections}
-        youtubeOAuthConfigured={youtubeOAuthConfigured}
-        instagramOAuthConfigured={instagramOAuthConfigured}
-        tiktokOAuthConfigured={tiktokOAuthConfigured}
-      />
 
       <BudgetCard budget={budget} />
 

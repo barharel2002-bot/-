@@ -16,6 +16,38 @@ import { useTranslations, useLocale } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
+import { createClient } from '@/lib/supabase/server';
+import { isSupabaseConfigured } from '@/lib/config';
+
+// שולף את שם התצוגה של המשתמש המחובר. סדר עדיפות:
+// 1. user_metadata.full_name (Google OAuth מספק את זה)
+// 2. user_metadata.name
+// 3. החלק הראשון של המייל ("bar.harel.2002" → "Bar Harel 2002")
+// 4. null אם המשתמש לא מחובר (אורח)
+async function getDisplayName(): Promise<string | null> {
+  if (!isSupabaseConfigured()) return null;
+  try {
+    const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) return null;
+    const meta = user.user_metadata ?? {};
+    if (typeof meta.full_name === 'string' && meta.full_name.trim())
+      return meta.full_name.trim();
+    if (typeof meta.name === 'string' && meta.name.trim()) return meta.name.trim();
+    const email = user.email ?? '';
+    const local = email.split('@')[0] ?? '';
+    if (!local) return null;
+    return local
+      .split(/[._-]+/)
+      .filter(Boolean)
+      .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
+      .join(' ');
+  } catch {
+    return null;
+  }
+}
 
 type FeatureKey =
   | 'ideas'
@@ -48,14 +80,18 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <HomeContent />;
+  const displayName = await getDisplayName();
+  return <HomeContent displayName={displayName} />;
 }
 
-function HomeContent() {
+function HomeContent({ displayName }: { displayName: string | null }) {
   const t = useTranslations('home');
   const tApp = useTranslations('app');
   const locale = useLocale();
   const Arrow = locale === 'he' ? ArrowLeft : ArrowRight;
+  const greeting = displayName
+    ? `${t('greeting')}, ${displayName}`
+    : t('greeting');
 
   return (
     <div className="space-y-10 animate-fade-in">
@@ -66,7 +102,7 @@ function HomeContent() {
           <span>{tApp('tagline')}</span>
         </div>
         <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-          {t('greeting')}
+          {greeting}
         </h1>
         <p className="text-lg text-muted-foreground md:text-xl">
           <span className="text-gradient-creator">{t('subgreeting')}</span>
