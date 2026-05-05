@@ -558,5 +558,16 @@
     "emptyState": "No channels yet. Paste a link above to get started.",
     "instagramHint": "Instagram requires Meta App Review",
     "tiktokHint": "TikTok requires App Review"
+  },
+  "youtube": {
+    "inline_prompt": "Paste a link to your YouTube channel to see your data",
+    "settings_label": "My YouTube channel",
+    "save": "Save",
+    "saving": "Saving…",
+    "clear": "Disconnect channel",
+    "synced_just_now": "Synced just now",
+    "synced_ago": "Synced {time} ago",
+    "no_videos_this_week": "No new uploads this week — what are you cooking?",
+    "quota_exceeded": "Reached today's YouTube API limit. Fresh data will be back tomorrow."
   }
 }

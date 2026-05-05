@@ -592,5 +592,16 @@
     "emptyState": "עדיין לא הוספת ערוצים. הדבק קישור למעלה כדי להתחיל.",
     "instagramHint": "Instagram יתאפשר אחרי Meta App Review",
     "tiktokHint": "TikTok יתאפשר אחרי TikTok App Review"
+  },
+  "youtube": {
+    "inline_prompt": "הדבק קישור לערוץ ה-YouTube שלך כדי לראות את הנתונים",
+    "settings_label": "הערוץ שלי ב-YouTube",
+    "save": "שמור",
+    "saving": "שומר…",
+    "clear": "נתק ערוץ",
+    "synced_just_now": "סונכרן עכשיו",
+    "synced_ago": "סונכרן לפני {time}",
+    "no_videos_this_week": "אין העלאות חדשות השבוע — על מה עובדים?",
+    "quota_exceeded": "הגענו למגבלת ה-API היומית של YouTube. הנתונים יהיו עדכניים שוב מחר."
   }
 }
