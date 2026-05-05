@@ -44,3 +44,30 @@ export interface VideoAnalysisResult {
   messageConnection: string;
   improvementTips?: string[];
 }
+
+// =============================
+// YouTube link redesign types
+// =============================
+export type {
+  ParsedChannelInput,
+  ResolvedChannel,
+  SyncedVideo,
+  SyncResult,
+  ToneAnalysis,
+  InsightsBullet,
+} from '@/lib/youtube/types';
+
+export interface TrackedCreator {
+  channelId: string;
+  channelUrl: string;
+  channelTitle: string;
+  uploadsPlaylist: string;
+  thumbnailUrl: string | null;
+  addedAt: string;
+}
+
+export interface ShortsCategoryConfig {
+  id: string;
+  label: { he: string; en: string };
+  channels: Array<{ handle: string; channelId: string; uploadsPlaylist: string }>;
+}
