@@ -278,6 +278,10 @@
   },
   "swipes": {
     "title": "סגנון",
+    "add_creator": "הוסף יוצר",
+    "categories_label": "קטגוריות שאני עוקב",
+    "creators_label": "יוצרים שאני לומד מהם",
+    "no_categories_or_creators": "בחר קטגוריה או הוסף יוצר כדי להתחיל.",
     "tabs": {
       "videos": "Shorts ו-Reels",
       "styles": "סגנונות עריכה",

@@ -244,6 +244,10 @@
   },
   "swipes": {
     "title": "Style",
+    "add_creator": "Add creator",
+    "categories_label": "Categories I follow",
+    "creators_label": "Creators I'm learning from",
+    "no_categories_or_creators": "Pick a category or add a creator to get started.",
     "tabs": {
       "videos": "Shorts & Reels",
       "styles": "Edit styles",
