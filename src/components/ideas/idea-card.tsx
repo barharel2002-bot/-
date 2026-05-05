@@ -2,14 +2,13 @@
 
 import { useState, useTransition } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { Trash2, Edit2, Save, X, Sparkles, Send, CheckCircle2 } from 'lucide-react';
+import { Trash2, Edit2, Save, X, Sparkles, CheckCircle2 } from 'lucide-react';
 import { format } from 'date-fns';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { TagChip } from './tag-chip';
 import { deleteIdea, updateIdea } from '@/lib/ideas/actions';
-import { PublishDialog } from '@/components/publish/publish-dialog';
 import { DevelopChatDialog } from './develop-chat-dialog';
 import type { IdeaRow } from '@/lib/ideas/queries';
 import type { IdeaTag } from '@/types';
@@ -22,12 +21,10 @@ type Props = {
 
 export function IdeaCard({ idea }: Props) {
   const t = useTranslations('ideas');
-  const tPublish = useTranslations('publish');
   const locale = useLocale();
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(idea.content);
   const [tags, setTags] = useState<Set<IdeaTag>>(new Set(idea.tags));
-  const [publishOpen, setPublishOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
 
@@ -130,17 +127,6 @@ export function IdeaCard({ idea }: Props) {
           {t('addedOn')} {formattedDate}
         </span>
         <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
-          {idea.status !== 'published' && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setPublishOpen(true)}
-              title={tPublish('markAsPublished')}
-              className="h-7 w-7 p-0 hover:text-emerald-400"
-            >
-              <Send className="h-3.5 w-3.5" />
-            </Button>
-          )}
           <Button
             variant="ghost"
             size="sm"
@@ -171,13 +157,6 @@ export function IdeaCard({ idea }: Props) {
           </Button>
         </div>
       </div>
-
-      <PublishDialog
-        open={publishOpen}
-        onOpenChange={setPublishOpen}
-        ideaId={idea.id}
-        ideaPreview={idea.content}
-      />
 
       <DevelopChatDialog
         open={chatOpen}
