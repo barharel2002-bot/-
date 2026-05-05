@@ -40,3 +40,6 @@ next-env.d.ts
 
 # Claude Code user-local settings (not shared between machines)
 .claude/
+
+# Local Netlify folder
+.netlify

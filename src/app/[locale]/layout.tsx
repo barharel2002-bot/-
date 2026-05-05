@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import type { Metadata, Viewport } from 'next';
 import { Inter, Heebo } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
@@ -80,22 +81,27 @@ export default async function LocaleLayout({
     <html lang={locale} dir={dir} className={`${inter.variable} ${heebo.variable}`}>
       <body className="min-h-dvh bg-background text-foreground antialiased">
         <NextIntlClientProvider messages={messages}>
-          <QuickCaptureProvider
-            enabled={quickEnabled}
-            whisperEnabled={whisperEnabled}
-          >
-            <Header />
-            <NavBar />
-            <OfflineIndicator />
-            <RegisterSW />
+          {/* Suspense boundary required because QuickCaptureProvider uses
+              useSearchParams() — without it, every page bails out of static
+              prerendering during build. */}
+          <Suspense fallback={null}>
+            <QuickCaptureProvider
+              enabled={quickEnabled}
+              whisperEnabled={whisperEnabled}
+            >
+              <Header />
+              <NavBar />
+              <OfflineIndicator />
+              <RegisterSW />
 
-            {/* תוכן ראשי — ריווח לסיידבר בדסקטופ ולניווט תחתון במובייל */}
-            <main className="md:ps-60">
-              <div className="mx-auto max-w-5xl px-4 pb-24 pt-6 md:pb-10 md:pt-10">
-                {children}
-              </div>
-            </main>
-          </QuickCaptureProvider>
+              {/* תוכן ראשי — ריווח לסיידבר בדסקטופ ולניווט תחתון במובייל */}
+              <main className="md:ps-60">
+                <div className="mx-auto max-w-5xl px-4 pb-24 pt-6 md:pb-10 md:pt-10">
+                  {children}
+                </div>
+              </main>
+            </QuickCaptureProvider>
+          </Suspense>
         </NextIntlClientProvider>
       </body>
     </html>
