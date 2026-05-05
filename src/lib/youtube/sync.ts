@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { listUploadsPlaylist, fetchVideoDetails } from './videos';
 import { getQuotaToday, isOverQuotaThreshold } from './quota';
+import { analyzeTone } from './tone';
 import type { SyncResult, SyncedVideo } from './types';
 
 const SYNC_TTL_MS = 24 * 60 * 60 * 1000; // 24h
@@ -68,6 +69,29 @@ export async function syncUserYouTubeData(
       .from('youtube_videos')
       .upsert(rows, { onConflict: 'user_id,video_id' });
     if (upsertErr) throw upsertErr;
+
+    // 6.5. AI tone analysis — one Sonnet call classifies all videos.
+    // Non-fatal: on failure or budget cap, keep going without tone.
+    try {
+      const tone = await analyzeTone(videos);
+
+      // Persist per-video tone (one update per video — small N, fine)
+      for (const [videoId, label] of Object.entries(tone.perVideo)) {
+        await supabase
+          .from('youtube_videos')
+          .update({ tone: label })
+          .eq('user_id', userId)
+          .eq('video_id', videoId);
+      }
+
+      // Persist week-level dominant tone on profile
+      await supabase
+        .from('profiles')
+        .update({ youtube_tone_cache: tone.dominant })
+        .eq('id', userId);
+    } catch (e: any) {
+      console.error('[youtube.sync] tone analysis failed:', e.message);
+    }
 
     // 7. Stats history snapshot for today (first sync of day wins)
     const today = new Date().toISOString().slice(0, 10);
