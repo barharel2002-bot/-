@@ -1,0 +1,562 @@
+{
+  "app": {
+    "name": "Creator Mode",
+    "tagline": "Every moment is an opportunity"
+  },
+  "nav": {
+    "home": "Home",
+    "ideas": "Ideas",
+    "analyze": "Video check",
+    "swipe": "Style",
+    "swipeVideos": "Videos",
+    "swipeStyles": "Edit styles",
+    "swipePhotos": "Photos & carousels",
+    "mirror": "This week",
+    "learn": "Learn",
+    "copy": "Writing",
+    "analytics": "Performance",
+    "settings": "Settings",
+    "more": "More",
+    "channels": "Channel analysis"
+  },
+  "home": {
+    "greeting": "Welcome back",
+    "subgreeting": "What will you create today?",
+    "addIdea": "Add idea",
+    "quickActions": "Quick actions",
+    "exploreFeatures": "What would you like to do?",
+    "features": {
+      "ideas": {
+        "title": "Ideas",
+        "description": "Every spark in one place"
+      },
+      "analyze": {
+        "title": "Video check",
+        "description": "Upload raw, get insight before posting"
+      },
+      "swipe": {
+        "title": "Style",
+        "description": "Swipe right on what you love"
+      },
+      "mirror": {
+        "title": "This week",
+        "description": "What you made, what's stuck, what you missed"
+      },
+      "learn": {
+        "title": "Learn",
+        "description": "Content to help you grow"
+      },
+      "copy": {
+        "title": "Writing",
+        "description": "Captions, hooks and hashtags"
+      },
+      "analytics": {
+        "title": "Performance",
+        "description": "What works and what doesn't"
+      },
+      "settings": {
+        "title": "Settings",
+        "description": "Your why, language and more"
+      },
+      "channels": {
+        "title": "Channel analysis",
+        "description": "Paste a YouTube link, get AI insights"
+      }
+    }
+  },
+  "ideas": {
+    "title": "Idea board",
+    "addNew": "New idea",
+    "placeholder": "What just hit you? Write it raw — refine later.",
+    "save": "Save",
+    "saving": "Saving",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirmDelete": "Delete this idea?",
+    "search": "Search ideas",
+    "filterByTag": "Filter by tag",
+    "all": "All",
+    "noResults": "No ideas match your search",
+    "voice": {
+      "start": "Record",
+      "stop": "Stop",
+      "recording": "Recording...",
+      "transcribing": "Transcribing...",
+      "permissionDenied": "Microphone permission denied",
+      "notSupported": "This browser doesn't support recording",
+      "transcribeFailed": "Transcription failed",
+      "needsOpenAI": "Transcription requires OPENAI_API_KEY in .env.local"
+    },
+    "image": {
+      "attach": "Attach image",
+      "uploading": "Uploading...",
+      "remove": "Remove",
+      "tooLarge": "Image is too large (max 5MB)",
+      "uploadFailed": "Upload failed",
+      "needsBucket": "Create a Supabase Storage bucket named idea-images"
+    },
+    "developWithAI": "Develop with AI",
+    "developComingSoon": "AI development arrives in Milestone 3",
+    "develop": {
+      "title": "Develop with AI",
+      "subtitle": "An agent that helps turn your idea into a script / caption / storyboard",
+      "ideaPin": "The idea",
+      "placeholder": "Reply — a question, direction, pushback...",
+      "send": "Send",
+      "sending": "Sending...",
+      "thinking": "Thinking...",
+      "errorBudget": "Monthly budget reached. Conversations resume next month.",
+      "errorFailed": "Send failed — try again",
+      "emptyHint": "The agent will write the first message in a moment",
+      "messagesLimit": "Conversation reached its limit — close and start a new one if needed"
+    },
+    "tags": {
+      "story": "Story",
+      "reel": "Reel",
+      "tiktok": "TikTok",
+      "spontaneous": "Spontaneous",
+      "develop": "Develop",
+      "post": "Post"
+    },
+    "status": {
+      "new": "New",
+      "in_progress": "In progress",
+      "published": "Published",
+      "archived": "Archived"
+    },
+    "empty": {
+      "title": "Space for your ideas",
+      "subtitle": "Every win started with one thought. Begin with a question:",
+      "prompts": {
+        "p1": "What caught your attention today?",
+        "p2": "What do people ask you most?",
+        "p3": "What do you wish someone had told you a year ago?"
+      }
+    },
+    "addedOn": "Added on"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Your personal space",
+    "why": {
+      "section": "Your Why",
+      "whyLabel": "Why do I create?",
+      "whyPlaceholder": "Write to yourself — no editing. This will return to you in reminders.",
+      "forWhomLabel": "For whom?",
+      "forWhomPlaceholder": "Describe your audience, even if it's just one person you imagine.",
+      "save": "Save",
+      "saved": "Saved"
+    },
+    "reminders": {
+      "section": "Push reminders",
+      "frequencyLabel": "Frequency",
+      "frequencies": {
+        "daily_morning": "Daily — morning",
+        "daily_evening": "Daily — evening",
+        "twice_week": "Twice a week",
+        "weekly": "Weekly"
+      },
+      "enable": "Enable browser notifications",
+      "enabled": "Notifications enabled",
+      "disable": "Disable notifications",
+      "denied": "Permission denied. Change it in your browser settings.",
+      "notSupported": "This browser does not support push notifications",
+      "sendTest": "Send a test notification",
+      "testSent": "Notification sent. Check that it arrived.",
+      "testFailed": "Send failed",
+      "scheduledTodo": "Auto-scheduling arrives in Milestone 6 (depends on hosting)"
+    },
+    "account": {
+      "section": "Account",
+      "signedInAs": "Signed in as",
+      "signOut": "Sign out"
+    }
+  },
+  "copy": {
+    "title": "Writing",
+    "subtitle": "Give an idea or context. Get a caption, 3 hooks, and hashtags.",
+    "ideaLabel": "The idea",
+    "ideaPlaceholder": "What do you want to write? Video content, free context, or an idea from your idea board.",
+    "generate": "Generate copy",
+    "generating": "Generating...",
+    "regenerate": "Regenerate",
+    "caption": "Caption",
+    "hooks": "Opening options (hooks)",
+    "hashtags": "Hashtags",
+    "copy": "Copy",
+    "copied": "Copied",
+    "notAFit": "Not a fit",
+    "feedbackTitle": "What didn't work?",
+    "feedbackSubtitle": "Explain in a sentence or two. We'll save it and feed it into every future generation.",
+    "feedbackPlaceholder": "e.g., \"Too formal\", \"I don't use those emojis\", \"Doesn't connect to my audience\"",
+    "submitFeedback": "Save and learn",
+    "feedbackSaved": "Feedback saved. The next generation will improve.",
+    "blockedTitle": "Monthly budget reached",
+    "blockedSubtitle": "The app hit 100% of the monthly AI budget. The budget resets at the start of next month, or you can raise it in settings.",
+    "warningBanner": "Monthly budget is nearly used up ({percent}% used)"
+  },
+  "analyze": {
+    "title": "Video check",
+    "subtitle": "Upload a raw video before posting. Get a full diagnostic — should you post, when, and where.",
+    "uploadCta": "Pick a video from your gallery",
+    "uploadHint": "MP4 / MOV / WebM, up to 200MB",
+    "extracting": "Extracting frames...",
+    "uploading": "Sending for analysis...",
+    "analyzing": "Claude is analyzing...",
+    "tooLarge": "File is over 200MB. Compress it before uploading.",
+    "extractFailed": "Couldn't extract frames from the video. The codec may not be supported.",
+    "analyzeFailed": "Analysis failed",
+    "analyzeAgain": "Try another video",
+    "results": {
+      "title": "Analysis results",
+      "suitable": "Ready to post?",
+      "yes": "Yes",
+      "no": "No",
+      "reason": "Why",
+      "platform": "Recommended platform",
+      "publishWhen": "When to post",
+      "hookQuality": "Hook quality",
+      "hookStrong": "Strong",
+      "hookMedium": "Medium",
+      "hookWeak": "Weak",
+      "messageConnection": "Connection to your message",
+      "improvementTips": "How to improve",
+      "platforms": {
+        "story": "Story",
+        "reel": "Reel (Instagram)",
+        "tiktok": "TikTok",
+        "post": "Post"
+      }
+    }
+  },
+  "budget": {
+    "section": "AI budget",
+    "monthlyBudget": "Monthly budget",
+    "used": "used",
+    "of": "of",
+    "tokensUsed": "Tokens used",
+    "input": "Input",
+    "output": "Output",
+    "statusOk": "All good",
+    "statusWarning": "Approaching limit",
+    "statusBlocked": "Budget exhausted",
+    "resetInfo": "Budget resets at the start of each month"
+  },
+  "swipes": {
+    "title": "Style",
+    "tabs": {
+      "videos": "Shorts & Reels",
+      "styles": "Edit styles",
+      "photos": "Photos"
+    },
+    "subtitle": {
+      "videos": "Paste links to YouTube Shorts (or YouTube videos) that resonate — the app learns your taste and feeds it back into idea generation.",
+      "styles": "Edit aesthetics — which style speaks to you?",
+      "photos": "Still posts and carousels — what is the vibe?"
+    },
+    "addLink": {
+      "label": "Paste a link",
+      "placeholder": "https://www.youtube.com/shorts/... or any YouTube video link",
+      "submit": "Add to queue",
+      "fetching": "Fetching...",
+      "errorInvalid": "Invalid link",
+      "errorFailed": "Couldn't fetch this link. Try another.",
+      "errorDuplicate": "Already in your queue",
+      "added": "Added to queue",
+      "hint": "Best with YouTube Shorts. Instagram/TikTok will work too if they have a public preview."
+    },
+    "actions": {
+      "skip": "Not for me",
+      "like": "I want this",
+      "undo": "Undo last"
+    },
+    "queue": {
+      "remaining": "{count} left in queue",
+      "empty": "Queue is empty",
+      "emptyHint": "Paste a link above to add content to swipe on"
+    },
+    "decided": {
+      "liked": "Liked",
+      "skipped": "Skipped"
+    },
+    "tip": "Swipe right = I want this. Left = not for me. Arrow keys also work.",
+    "platforms": {
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "youtube": "YouTube",
+      "other": "Other"
+    }
+  },
+  "mirror": {
+    "title": "This week",
+    "subtitle": "What your tracked channels published this week, what you created, what is stuck — all in one view.",
+    "empty": {
+      "title": "The mirror is still filling up",
+      "subtitle": "Start creating — patterns will emerge quickly. Meanwhile, questions to sit with:",
+      "prompts": {
+        "p1": "What style feels most natural to you?",
+        "p2": "Who are you as a creator, in 3 sentences?",
+        "p3": "What do people say you're good at?"
+      }
+    },
+    "sections": {
+      "posted": "What you posted this week",
+      "drafts": "Drafts waiting",
+      "ideasToDevelop": "Ideas still on the board",
+      "likedStyles": "Styles you liked",
+      "tone": "Dominant tone",
+      "activity": "Active hours",
+      "channelUploads": "This week from your channels"
+    },
+    "noContentThisWeek": "Nothing this week yet. Then again — today still counts as this week.",
+    "noDrafts": "No stuck drafts",
+    "noIdeas": "No ideas waiting",
+    "noSwipes": "No swipes yet",
+    "totalPosted": "{count} posts total",
+    "tones": {
+      "inspirational": "Inspirational",
+      "educational": "Educational",
+      "personal": "Personal",
+      "funny": "Funny",
+      "value": "Value"
+    },
+    "contentTypes": {
+      "story": "Story",
+      "short_video": "Reel / TikTok",
+      "long_video": "Long video",
+      "post": "Post",
+      "carousel": "Carousel"
+    },
+    "noChannelUploads": "No new uploads in your tracked channels this week. Add channels in \"Channel analysis\".",
+    "viewsLabel": "views",
+    "shortLabel": "SHORT",
+    "totalUploads": "{count} uploads total"
+  },
+  "publish": {
+    "markAsPublished": "Mark as published",
+    "title": "Log a published post",
+    "subtitle": "Fill what's relevant — used in your weekly mirror and analytics",
+    "typeLabel": "Content type",
+    "platformLabel": "Platform",
+    "toneLabel": "Tone",
+    "platforms": {
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "both": "Both"
+    },
+    "save": "Save",
+    "saved": "Logged",
+    "skipTone": "No preference"
+  },
+  "learn": {
+    "title": "Learn",
+    "subtitle": "YouTube videos to help you grow as a creator",
+    "tabs": {
+      "creating_content": "Creating content",
+      "spotting_opportunities": "Spotting opportunities",
+      "persistence": "Persistence",
+      "on_camera_confidence": "On-camera confidence",
+      "social_strategy": "Social strategy",
+      "saved": "Saved"
+    },
+    "filters": {
+      "all": "All",
+      "shorts": "Shorts",
+      "long": "Long-form"
+    },
+    "loading": "Loading from YouTube...",
+    "empty": "No videos found in this category",
+    "savedEmpty": "No saved videos yet. Mark ★ on anything useful.",
+    "watch": "Watch",
+    "save": "Save",
+    "saved": "Saved",
+    "markUseful": "Useful",
+    "markedUseful": "Useful",
+    "errorApi": "YouTube fetch failed. Check your API key or daily quota.",
+    "openOnYoutube": "Open on YouTube"
+  },
+  "analytics": {
+    "title": "Private metrics",
+    "subtitle": "Enter the numbers the public YouTube API does not expose — CTR, retention, watch time. Public stats like views and likes are fetched automatically on the \"Channel analysis\" page.",
+    "empty": {
+      "title": "No data to analyze yet",
+      "subtitle": "After you mark an idea as published, come here to log views, likes, and shares."
+    },
+    "addMetrics": "Log metrics",
+    "editMetrics": "Update metrics",
+    "noMetricsYet": "No metrics yet",
+    "form": {
+      "title": "Performance metrics",
+      "subtitle": "Enter the numbers from the platform. Update anytime.",
+      "views": "Views",
+      "likes": "Likes",
+      "saves": "Saves",
+      "shares": "Shares",
+      "comments": "Comments",
+      "avgWatchTime": "Avg watch time (seconds)",
+      "save": "Save",
+      "saved": "Saved"
+    },
+    "charts": {
+      "byType": "Performance by content type",
+      "byTone": "Performance by tone",
+      "byHour": "Performance by hour posted",
+      "noData": "Not enough data — log metrics for at least one post"
+    },
+    "metrics": {
+      "avgViews": "Avg views",
+      "totalPosts": "Total posts",
+      "totalEngagement": "Total interactions"
+    },
+    "todoIntegration": "TODO: Auto integration with Instagram Graph + TikTok Display API — future milestone",
+    "competitor": {
+      "title": "Add a channel",
+      "subtitle": "Paste a link, handle (@name), or YouTube channel ID",
+      "addLabel": "Link / handle",
+      "addPlaceholder": "@username, https://youtube.com/@username, or UC...",
+      "addButton": "Add",
+      "adding": "Adding...",
+      "errorNotFound": "Channel not found",
+      "errorInvalid": "Invalid input",
+      "errorFailed": "Fetch failed",
+      "untrack": "Remove",
+      "lastUpdated": "Updated",
+      "instagram": "Instagram requires Meta App Review",
+      "tiktok": "TikTok requires App Review"
+    },
+    "insights": {
+      "analyze": "✨ Analyze with AI",
+      "analyzing": "Analyzing channel...",
+      "hide": "Hide insights",
+      "show": "Show insights",
+      "sections": {
+        "summary": "Summary",
+        "whatsWorking": "What is working",
+        "whatToDrop": "What to drop",
+        "hookPatterns": "Hook patterns",
+        "hashtagStrategy": "Keywords / hashtags strategy",
+        "contentThemes": "Content themes",
+        "recommendations": "Recommended next steps",
+        "postingTime": "Posting cadence"
+      },
+      "errors": {
+        "anthropic_api_key_missing": "ANTHROPIC_API_KEY missing in .env.local",
+        "youtube_api_key_missing": "YOUTUBE_API_KEY missing in .env.local",
+        "not_found": "Channel not found",
+        "invalid_input": "Invalid input",
+        "fetch_failed": "Fetch failed",
+        "ai_failed": "Analysis failed. Try again in a moment.",
+        "parse_failed": "AI returned an unexpected format. Try again."
+      }
+    }
+  },
+  "auth": {
+    "title": "Sign in",
+    "subtitle": "We'll send a magic link to your email",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "your@email.com",
+    "send": "Send me a link",
+    "sending": "Sending",
+    "checkInbox": "Open your email and click the link.",
+    "error": "Failed to send. Try again.",
+    "errorInvalidEmail": "Invalid email address"
+  },
+  "setup": {
+    "title": "Initial setup required",
+    "missingSupabase": "Supabase keys are missing from .env.local",
+    "missingAnthropic": "Anthropic API key is missing from .env.local",
+    "instructions": "Open README.md for full instructions.",
+    "showMissing": "What's missing",
+    "wizard": {
+      "title": "Initial setup",
+      "subtitle": "A few minutes and you're ready for real work. Anything already set up is marked ✓",
+      "configured": "Configured",
+      "missing": "Missing",
+      "required": "Required",
+      "optional": "Optional",
+      "copyEnv": "Copy lines for .env.local",
+      "copySQL": "Copy SQL",
+      "copied": "Copied!",
+      "openDashboard": "Open dashboard",
+      "openConsole": "Open console",
+      "restartHint": "After updating .env.local — restart the dev server (Ctrl+C, then npm run dev)",
+      "refreshHint": "Once all keys are entered and the server is back — refresh this page to see everything turn green",
+      "supabase": {
+        "title": "Supabase — Database + Auth",
+        "description": "The foundation of the app. Stores your ideas, swipes, analytics. Free up to 500MB.",
+        "step1": "Open supabase.com → New Project. Pick a name, region (Frankfurt or London recommended), set DB password",
+        "step2": "Once project ready, go to SQL Editor → New query → paste all the SQL below → Run.",
+        "step3": "Storage → create 2 private buckets: idea-images and videos",
+        "step4": "Project Settings → API. Copy the 3 keys, paste into .env.local as shown below",
+        "step5": "Authentication → URL Configuration. Add http://localhost:3000 to Site URL"
+      },
+      "anthropic": {
+        "title": "Anthropic — AI agents",
+        "description": "Powers the copy agent, video analysis, and idea-development chat. Budget capped at $50/month.",
+        "step1": "Open console.anthropic.com → Settings → API Keys → Create Key",
+        "step2": "Important: in Limits — set Spending Limit to $50 to never accidentally exceed",
+        "step3": "Copy the key (shown only once!) to .env.local"
+      },
+      "youtube": {
+        "title": "YouTube Data API — Learning library",
+        "description": "Optional. Pulls educational videos from YouTube for the Learn page.",
+        "step1": "Google Cloud Console → APIs & Services → Library. Enable YouTube Data API v3",
+        "step2": "Credentials → Create Credentials → API Key. Copy to .env.local"
+      },
+      "openai": {
+        "title": "OpenAI Whisper — Voice transcription",
+        "description": "Optional. Enables voice recording of ideas (auto-transcribed to text).",
+        "step1": "platform.openai.com → API keys → Create new secret key",
+        "step2": "Copy to .env.local"
+      },
+      "vapid": {
+        "title": "VAPID Keys — Push reminders",
+        "description": "Optional. Required to send push notifications to the browser.",
+        "step1": "Open a terminal in the project folder and run:",
+        "step2": "Copy the two values shown to .env.local (NEXT_PUBLIC_VAPID_PUBLIC_KEY and VAPID_PRIVATE_KEY)"
+      },
+      "allDone": "Everything is set up! Click here to go back to the app",
+      "goToApp": "Back to the app"
+    }
+  },
+  "demo": {
+    "title": "Demo mode",
+    "subtitle": "You're seeing sample data. Connect Supabase in .env.local to save for real",
+    "ctaSetup": "How do I connect?",
+    "saveBlocked": "Demo mode — connect Supabase to save",
+    "dismiss": "Dismiss"
+  },
+  "offline": {
+    "indicator": "You're offline",
+    "syncing": "Syncing {count} items...",
+    "synced": "Synced",
+    "queued": "Will save when you're back online",
+    "queuedIdea": "Idea saved locally — will sync automatically"
+  },
+  "common": {
+    "comingSoon": "Coming soon",
+    "underConstruction": "This feature is under construction",
+    "back": "Back",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading",
+    "error": "Something went wrong",
+    "tryAgain": "Try again"
+  },
+  "language": {
+    "switch": "Switch language",
+    "hebrew": "עברית",
+    "english": "English"
+  },
+  "channels": {
+    "title": "Channel analysis",
+    "subtitle": "Paste a YouTube link — yours or anyone's — and get public stats + AI insights on what is working, what is not, and what to do next. No OAuth.",
+    "cardTitle": "Analyze a YouTube channel",
+    "cardSubtitle": "Link, handle (@name), or channel ID",
+    "emptyState": "No channels yet. Paste a link above to get started.",
+    "instagramHint": "Instagram requires Meta App Review",
+    "tiktokHint": "TikTok requires App Review"
+  }
+}

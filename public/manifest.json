@@ -1,0 +1,57 @@
+{
+  "name": "מצב יוצר",
+  "short_name": "Creator",
+  "description": "כלי מיינדסט להישאר במצב של יוצר תוכן",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0A0A0B",
+  "theme_color": "#0A0A0B",
+  "categories": ["productivity", "lifestyle", "social"],
+  "lang": "he",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "הוסף רעיון",
+      "short_name": "רעיון",
+      "description": "הוסף רעיון תוכן חדש במהירות",
+      "url": "/he/ideas?new=1",
+      "icons": [
+        { "src": "/icons/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml" }
+      ]
+    },
+    {
+      "name": "ניתוח סרטון",
+      "short_name": "ניתוח",
+      "description": "העלה סרטון לניתוח עם AI",
+      "url": "/he/analyze",
+      "icons": [
+        { "src": "/icons/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml" }
+      ]
+    },
+    {
+      "name": "מראה שבועית",
+      "short_name": "מראה",
+      "description": "מה יצרת השבוע",
+      "url": "/he/mirror",
+      "icons": [
+        { "src": "/icons/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml" }
+      ]
+    }
+  ]
+}

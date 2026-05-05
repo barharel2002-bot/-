@@ -1,0 +1,596 @@
+{
+  "app": {
+    "name": "מצב יוצר",
+    "tagline": "כל רגע הוא הזדמנות"
+  },
+  "nav": {
+    "home": "בית",
+    "ideas": "רעיונות",
+    "analyze": "בדיקת סרטון",
+    "swipe": "סגנון",
+    "swipeVideos": "סרטונים",
+    "swipeStyles": "סגנונות עריכה",
+    "swipePhotos": "תמונות וקרוסלות",
+    "mirror": "השבוע",
+    "learn": "למידה",
+    "copy": "כתיבה",
+    "analytics": "ביצועים",
+    "settings": "הגדרות",
+    "more": "עוד",
+    "channels": "ניתוח ערוצים"
+  },
+  "home": {
+    "greeting": "ברוך שובך",
+    "subgreeting": "מה תיצור היום?",
+    "addIdea": "הוסף רעיון",
+    "quickActions": "פעולות מהירות",
+    "exploreFeatures": "מה תרצה לעשות?",
+    "features": {
+      "ideas": {
+        "title": "רעיונות",
+        "description": "כל הניצוצות במקום אחד"
+      },
+      "analyze": {
+        "title": "בדיקת סרטון",
+        "description": "העלה גלם, קבל תובנות"
+      },
+      "swipe": {
+        "title": "סגנון",
+        "description": "החלק ימינה למה שאתה אוהב"
+      },
+      "mirror": {
+        "title": "השבוע",
+        "description": "מה יצרת השבוע, מה תקוע, מה לא פיתחת"
+      },
+      "learn": {
+        "title": "למידה",
+        "description": "תוכן שעוזר לך לצמוח"
+      },
+      "copy": {
+        "title": "כתיבה",
+        "description": "כיתובים, hooks והאשטגים"
+      },
+      "analytics": {
+        "title": "ביצועים",
+        "description": "מה עובד ומה לא"
+      },
+      "settings": {
+        "title": "הגדרות",
+        "description": "ה-Why שלך, שפה ועוד"
+      },
+      "channels": {
+        "title": "ניתוח ערוצים",
+        "description": "הדבק קישור YouTube וקבל תובנות AI"
+      }
+    }
+  },
+  "ideas": {
+    "title": "לוח רעיונות",
+    "addNew": "רעיון חדש",
+    "placeholder": "מה עלה לך? כתוב הכל — נסחר אחר כך.",
+    "save": "שמור",
+    "saving": "שומר",
+    "edit": "ערוך",
+    "delete": "מחק",
+    "confirmDelete": "למחוק את הרעיון?",
+    "search": "חיפוש ברעיונות",
+    "filterByTag": "סנן לפי תגית",
+    "all": "הכל",
+    "noResults": "אין תוצאות לחיפוש שלך",
+    "voice": {
+      "start": "הקלט",
+      "stop": "עצור",
+      "recording": "מקליט...",
+      "transcribing": "מתמלל...",
+      "permissionDenied": "אין הרשאה למיקרופון",
+      "notSupported": "הדפדפן לא תומך בהקלטה",
+      "transcribeFailed": "התמלול נכשל",
+      "needsOpenAI": "תמלול דורש מפתח OpenAI ב-.env.local"
+    },
+    "image": {
+      "attach": "צרף תמונה",
+      "uploading": "מעלה...",
+      "remove": "הסר",
+      "tooLarge": "התמונה גדולה מדי (מקסימום 5MB)",
+      "uploadFailed": "ההעלאה נכשלה",
+      "needsBucket": "יש ליצור bucket בשם idea-images ב-Supabase Storage"
+    },
+    "developWithAI": "פתח את הרעיון עם AI",
+    "developComingSoon": "פיתוח עם AI יגיע באבן דרך 3",
+    "develop": {
+      "title": "פיתוח עם AI",
+      "subtitle": "סוכן שיעזור לפתח את הרעיון לתסריט / קופי / storyboard",
+      "ideaPin": "הרעיון",
+      "placeholder": "תכתוב חזרה — שאלה, כיוון, ערעור...",
+      "send": "שלח",
+      "sending": "שולח...",
+      "thinking": "חושב...",
+      "errorBudget": "התקציב החודשי הסתיים. השיחה תוכל להמשיך בחודש הבא.",
+      "errorFailed": "השליחה נכשלה — נסה שוב",
+      "emptyHint": "הסוכן יתחיל לכתוב את ההודעה הראשונה תוך שניה",
+      "messagesLimit": "השיחה הגיעה למגבלה — סגור והתחל חדשה אם צריך"
+    },
+    "tags": {
+      "story": "סטורי",
+      "reel": "ריל",
+      "tiktok": "טיקטוק",
+      "spontaneous": "ספונטני",
+      "develop": "לפיתוח",
+      "post": "פוסט"
+    },
+    "status": {
+      "new": "חדש",
+      "in_progress": "בעבודה",
+      "published": "פורסם",
+      "archived": "בארכיון"
+    },
+    "empty": {
+      "title": "מקום לרעיונות שלך",
+      "subtitle": "כל הצלחה התחילה ממחשבה אחת. תתחיל באחת מהשאלות:",
+      "prompts": {
+        "p1": "מה משך לך תשומת לב היום?",
+        "p2": "מה אנשים שואלים אותך הכי הרבה?",
+        "p3": "מה הדבר שהיית רוצה שמישהו היה אומר לך לפני שנה?"
+      }
+    },
+    "addedOn": "נוסף בתאריך"
+  },
+  "connections": {
+    "section": "חיבורי ערוצים",
+    "subtitle": "חבר את הערוץ שלך כדי לראות אנליטיקה אמיתית",
+    "connected": "מחובר",
+    "notConnected": "לא מחובר",
+    "connect": "חבר",
+    "connecting": "מתחבר...",
+    "disconnect": "נתק",
+    "since": "מאז",
+    "youtube": {
+      "name": "YouTube",
+      "description": "חבר את הערוץ האישי שלך — תקבל צפיות, watch time, subscribers ועוד",
+      "needsOAuth": "צריך GOOGLE_OAUTH_CLIENT_ID + GOOGLE_OAUTH_CLIENT_SECRET ב-.env.local"
+    },
+    "instagram": {
+      "name": "Instagram",
+      "description": "חיבור Instagram Business",
+      "comingSoon": "דורש Meta App Review (שבועות-חודשים) + Instagram Business + Facebook Page"
+    },
+    "tiktok": {
+      "name": "TikTok",
+      "description": "חיבור TikTok Business",
+      "comingSoon": "דורש TikTok for Developers App Review"
+    },
+    "errorOauth": {
+      "youtube_invalid": "ה-OAuth של YouTube נכשל — נסה שוב",
+      "youtube_state": "אבטחת State לא נכונה — נסה שוב",
+      "youtube_failed": "החיבור ל-YouTube נכשל",
+      "youtube_save_failed": "החיבור הצליח אבל השמירה ב-DB נכשלה",
+      "youtube_access_denied": "סירבת לאשר. בלי הרשאה אין אנליטיקה",
+      "instagram_scaffold": "Instagram יתאפשר אחרי Meta App Review",
+      "tiktok_scaffold": "TikTok יתאפשר אחרי TikTok App Review"
+    }
+  },
+  "settings": {
+    "title": "הגדרות",
+    "subtitle": "המקום האישי שלך",
+    "why": {
+      "section": "ה-Why שלך",
+      "whyLabel": "למה אני יוצר תוכן?",
+      "whyPlaceholder": "כתוב לעצמך — בלי עריכה. זה יחזור אליך בתזכורות.",
+      "forWhomLabel": "בשביל מי?",
+      "forWhomPlaceholder": "תיאור הקהל שלך, גם אם הוא רק אדם אחד שאתה מדמיין.",
+      "save": "שמור",
+      "saved": "נשמר"
+    },
+    "reminders": {
+      "section": "תזכורות Push",
+      "frequencyLabel": "תדירות",
+      "frequencies": {
+        "daily_morning": "יומי — בוקר",
+        "daily_evening": "יומי — ערב",
+        "twice_week": "פעמיים בשבוע",
+        "weekly": "שבועי"
+      },
+      "enable": "הפעל התראות בדפדפן",
+      "enabled": "ההתראות מופעלות",
+      "disable": "כבה התראות",
+      "denied": "ההרשאה נדחתה. שנה את ההגדרה בדפדפן.",
+      "notSupported": "הדפדפן הזה לא תומך בהתראות",
+      "sendTest": "שלח התראת בדיקה",
+      "testSent": "ההתראה נשלחה. בדוק אם קיבלת.",
+      "testFailed": "השליחה נכשלה",
+      "scheduledTodo": "תזמון אוטומטי יגיע באבן דרך 6 (תלוי בהוסטינג)"
+    },
+    "account": {
+      "section": "חשבון",
+      "signedInAs": "מחובר כ",
+      "signOut": "התנתק"
+    }
+  },
+  "copy": {
+    "title": "כתיבה",
+    "subtitle": "הזן רעיון או הקשר. תקבל כיתוב מלא, 3 hooks, ורשימת האשטגים.",
+    "ideaLabel": "הרעיון",
+    "ideaPlaceholder": "מה אתה רוצה לכתוב? תוכן הסרטון, הקשר חופשי, או רעיון מ-לוח הרעיונות.",
+    "generate": "צור קופי",
+    "generating": "יוצר...",
+    "regenerate": "עוד גרסה",
+    "caption": "כיתוב",
+    "hooks": "אופציות פתיחה (Hooks)",
+    "hashtags": "האשטגים",
+    "copy": "העתק",
+    "copied": "הועתק",
+    "notAFit": "לא מתאים",
+    "feedbackTitle": "מה לא עבד?",
+    "feedbackSubtitle": "תסביר במשפט או שניים. ההסבר יישמר ויזרים את כל הקריאות הבאות לסוכן.",
+    "feedbackPlaceholder": "למשל: \"הטון יותר מדי פורמלי\", \"אני לא משתמש באמוג׳י כאלה\", \"זה לא מחובר לקהל שלי\"",
+    "submitFeedback": "שמור ולמד",
+    "feedbackSaved": "הפידבק נשמר. הקריאה הבאה תשתפר.",
+    "blockedTitle": "התקציב החודשי הסתיים",
+    "blockedSubtitle": "האפליקציה הגיעה ל-100% מהתקציב החודשי לסוכני AI. התקציב מתאפס בתחילת החודש הבא, או שניתן להעלות אותו בהגדרות.",
+    "warningBanner": "התקציב החודשי קרוב לסיום ({percent}% נוצל)"
+  },
+  "analyze": {
+    "title": "בדיקת סרטון",
+    "subtitle": "העלה סרטון גלמי לפני שאתה מפרסם. נחזיר לך אבחון מלא — האם להעלות, מתי ולאיזה פלטפורמה.",
+    "uploadCta": "בחר סרטון מהגלריה",
+    "uploadHint": "MP4 / MOV / WebM, עד 200MB",
+    "extracting": "מחלץ פריימים...",
+    "uploading": "שולח לניתוח...",
+    "analyzing": "Claude מנתח...",
+    "tooLarge": "הקובץ גדול מ-200MB. נסה לדחוס לפני העלאה.",
+    "extractFailed": "לא הצלחנו לחלץ פריימים מהסרטון. ייתכן שהקודק לא נתמך.",
+    "analyzeFailed": "הניתוח נכשל",
+    "analyzeAgain": "נסה סרטון אחר",
+    "results": {
+      "title": "תוצאות הניתוח",
+      "suitable": "מתאים לפרסום?",
+      "yes": "כן",
+      "no": "לא",
+      "reason": "הסבר",
+      "platform": "פלטפורמה מומלצת",
+      "publishWhen": "מתי לפרסם",
+      "hookQuality": "איכות ה-hook",
+      "hookStrong": "חזק",
+      "hookMedium": "בינוני",
+      "hookWeak": "חלש",
+      "messageConnection": "חיבור למסר שלך",
+      "improvementTips": "איך לשפר",
+      "platforms": {
+        "story": "סטורי",
+        "reel": "ריל (אינסטגרם)",
+        "tiktok": "טיקטוק",
+        "post": "פוסט"
+      }
+    }
+  },
+  "budget": {
+    "section": "תקציב AI",
+    "monthlyBudget": "תקציב חודשי",
+    "used": "נוצל",
+    "of": "מתוך",
+    "tokensUsed": "טוקנים שנוצלו",
+    "input": "קלט",
+    "output": "פלט",
+    "statusOk": "הכל בסדר",
+    "statusWarning": "מתקרב לתקרה",
+    "statusBlocked": "התקציב הסתיים",
+    "resetInfo": "התקציב מתאפס בתחילת כל חודש"
+  },
+  "swipes": {
+    "title": "סגנון",
+    "tabs": {
+      "videos": "Shorts ו-Reels",
+      "styles": "סגנונות עריכה",
+      "photos": "תמונות"
+    },
+    "subtitle": {
+      "videos": "הדבק קישורים ל-YouTube Shorts (או סרטוני YouTube) שמדברים אליך — האפליקציה תלמד את הטעם שלך והתובנות יעלו ביצירה.",
+      "styles": "אסתטיקות עריכה — מה הסגנון שמדבר אליך?",
+      "photos": "פוסטים סטילים וקרוסלות — מה התחושה?"
+    },
+    "addLink": {
+      "label": "הדבק קישור",
+      "placeholder": "https://www.youtube.com/shorts/... או קישור YouTube רגיל",
+      "submit": "הוסף לתור",
+      "fetching": "שולף תוכן...",
+      "errorInvalid": "הקישור לא תקין",
+      "errorFailed": "לא הצלחנו לשלוף את התוכן. נסה קישור אחר.",
+      "errorDuplicate": "הקישור כבר קיים בתור",
+      "added": "נוסף לתור",
+      "hint": "הכי טוב עם YouTube Shorts. גם Instagram/TikTok יעבדו אם יש להם תצוגה ציבורית."
+    },
+    "actions": {
+      "skip": "לא בשבילי",
+      "like": "אני רוצה כזה",
+      "undo": "בטל פעולה אחרונה"
+    },
+    "queue": {
+      "remaining": "נשארו {count} בתור",
+      "empty": "התור ריק",
+      "emptyHint": "הדבק קישור למעלה כדי להוסיף תוכן לסוויפ"
+    },
+    "decided": {
+      "liked": "אהבת",
+      "skipped": "דילגת"
+    },
+    "tip": "החלקה ימינה = אהבתי. שמאלה = לא בשבילי. אפשר גם בחיצים.",
+    "platforms": {
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "youtube": "YouTube",
+      "other": "אחר"
+    }
+  },
+  "mirror": {
+    "title": "השבוע",
+    "subtitle": "מה הערוצים שלך פרסמו השבוע, מה אתה יצרת, מה תקוע — הכל במבט אחד.",
+    "empty": {
+      "title": "המראה עוד מתמלאת",
+      "subtitle": "תתחיל ליצור — מהר מאוד תראה דפוסים. בינתיים שאלות לחזור אליהן:",
+      "prompts": {
+        "p1": "מה הסגנון שמרגיש לך הכי טבעי?",
+        "p2": "מי אתה כיוצר ב-3 משפטים?",
+        "p3": "מה אנשים אומרים שאתה טוב בו?"
+      }
+    },
+    "sections": {
+      "posted": "מה פרסמת השבוע",
+      "drafts": "טיוטות שמחכות",
+      "ideasToDevelop": "רעיונות שלא פותחו",
+      "likedStyles": "סגנונות שאהבת",
+      "tone": "טון דומיננטי",
+      "activity": "שעות פעילות",
+      "channelUploads": "השבוע מהערוצים שלך"
+    },
+    "noContentThisWeek": "עדיין כלום השבוע. לעומת זאת — היום זה גם שבוע.",
+    "noDrafts": "אין טיוטות תקועות",
+    "noIdeas": "אין רעיונות שמחכים",
+    "noSwipes": "עוד לא ביצעת סוויפים",
+    "totalPosted": "סה\"כ {count} פרסומים",
+    "tones": {
+      "inspirational": "השראה",
+      "educational": "לימודי",
+      "personal": "אישי",
+      "funny": "מצחיק",
+      "value": "ערכי"
+    },
+    "contentTypes": {
+      "story": "סטורי",
+      "short_video": "ריל / טיקטוק",
+      "long_video": "סרטון ארוך",
+      "post": "פוסט",
+      "carousel": "קרוסלה"
+    },
+    "noChannelUploads": "אין העלאות חדשות בערוצים שאתה עוקב אחריהם השבוע. הוסף ערוץ ב\"ניתוח ערוצים\".",
+    "viewsLabel": "צפיות",
+    "shortLabel": "SHORT",
+    "totalUploads": "סה\"כ {count} העלאות"
+  },
+  "publish": {
+    "markAsPublished": "סמן כפורסם",
+    "title": "תיעוד פרסום",
+    "subtitle": "מלא לפי הצורך — נשתמש במידע ב'מראה השבועית' ובאנליטיקה",
+    "typeLabel": "סוג התוכן",
+    "platformLabel": "פלטפורמה",
+    "toneLabel": "טון",
+    "platforms": {
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "both": "שניהם"
+    },
+    "save": "שמור פרסום",
+    "saved": "נרשם בהצלחה",
+    "skipTone": "לא משנה"
+  },
+  "learn": {
+    "title": "למידה",
+    "subtitle": "סרטוני YouTube שיעזרו לך לצמוח כיוצר",
+    "tabs": {
+      "creating_content": "יצירת תוכן",
+      "spotting_opportunities": "זיהוי הזדמנויות",
+      "persistence": "התמדה",
+      "on_camera_confidence": "ביטחון מול המצלמה",
+      "social_strategy": "אסטרטגיית רשתות",
+      "saved": "שמורים"
+    },
+    "filters": {
+      "all": "הכל",
+      "shorts": "Shorts",
+      "long": "ארוכים"
+    },
+    "loading": "טוען מ-YouTube...",
+    "empty": "לא נמצאו סרטונים בקטגוריה הזו",
+    "savedEmpty": "עוד לא שמרת סרטונים. תסמן ★ על סרטון מועיל.",
+    "watch": "צפה",
+    "save": "שמור",
+    "saved": "שמור",
+    "markUseful": "מועיל",
+    "markedUseful": "מועיל",
+    "errorApi": "השליפה מ-YouTube נכשלה. ייתכן שהמפתח לא תקין או שהמכסה היומית הסתיימה.",
+    "openOnYoutube": "פתח ב-YouTube"
+  },
+  "analytics": {
+    "title": "מספרים פרטיים",
+    "subtitle": "הזן ידנית את המספרים שלא קיימים ב-API הציבורי של YouTube — CTR, retention, watch time. צפיות ולייקים נשלפים אוטומטית בעמוד \"ניתוח ערוצים\".",
+    "empty": {
+      "title": "עדיין אין נתונים לניתוח",
+      "subtitle": "אחרי שתעבור על רעיון ותסמן \"פורסם\" — תוכל להזין כאן צפיות, לייקים ושיתופים."
+    },
+    "addMetrics": "הזן מדדים",
+    "editMetrics": "עדכן מדדים",
+    "noMetricsYet": "אין מדדים",
+    "form": {
+      "title": "מדדי ביצוע",
+      "subtitle": "הזן את הנתונים מהרשת. אפשר לעדכן בכל זמן.",
+      "views": "צפיות",
+      "likes": "לייקים",
+      "saves": "שמירות",
+      "shares": "שיתופים",
+      "comments": "תגובות",
+      "avgWatchTime": "זמן צפייה ממוצע (שניות)",
+      "save": "שמור",
+      "saved": "נשמר"
+    },
+    "charts": {
+      "byType": "ביצועים לפי סוג תוכן",
+      "byTone": "ביצועים לפי טון",
+      "byHour": "ביצועים לפי שעת פרסום",
+      "noData": "אין מספיק נתונים לגרף — הזן מדדים לפחות לפוסט אחד"
+    },
+    "metrics": {
+      "avgViews": "ממוצע צפיות",
+      "totalPosts": "סה\"כ פוסטים",
+      "totalEngagement": "סה\"כ אינטראקציות"
+    },
+    "todoIntegration": "Instagram + TikTok נדרשים App Review של Meta/TikTok להפעלה אמיתית",
+    "competitor": {
+      "title": "הוסף ערוץ",
+      "subtitle": "הדבק קישור, handle (@שם) או channel ID של YouTube",
+      "addLabel": "קישור / handle",
+      "addPlaceholder": "@username, https://youtube.com/@username, or UC...",
+      "addButton": "הוסף",
+      "adding": "מוסיף...",
+      "errorNotFound": "ערוץ לא נמצא",
+      "errorInvalid": "קלט לא תקין",
+      "errorFailed": "השליפה נכשלה",
+      "untrack": "הסר",
+      "lastUpdated": "עודכן",
+      "instagram": "Instagram יתאפשר אחרי Meta App Review",
+      "tiktok": "TikTok יתאפשר אחרי TikTok App Review"
+    },
+    "insights": {
+      "analyze": "✨ נתח עם AI",
+      "analyzing": "מנתח את הערוץ...",
+      "hide": "הסתר תובנות",
+      "show": "הצג תובנות",
+      "sections": {
+        "summary": "סיכום",
+        "whatsWorking": "מה עובד",
+        "whatToDrop": "מה כדאי להפסיק",
+        "hookPatterns": "דפוסי hook",
+        "hashtagStrategy": "אסטרטגיית keywords / hashtags",
+        "contentThemes": "נושאים מרכזיים",
+        "recommendations": "המלצות לצעדים הבאים",
+        "postingTime": "תזמון פרסום"
+      },
+      "errors": {
+        "anthropic_api_key_missing": "חסר ANTHROPIC_API_KEY ב-.env.local",
+        "youtube_api_key_missing": "חסר YOUTUBE_API_KEY ב-.env.local",
+        "not_found": "ערוץ לא נמצא",
+        "invalid_input": "קלט לא תקין",
+        "fetch_failed": "השליפה נכשלה",
+        "ai_failed": "הניתוח נכשל. נסה שוב בעוד רגע.",
+        "parse_failed": "הניתוח חזר בפורמט לא צפוי. נסה שוב."
+      }
+    }
+  },
+  "auth": {
+    "title": "התחברות",
+    "subtitle": "נשלח אליך קישור קסום למייל",
+    "emailLabel": "כתובת מייל",
+    "emailPlaceholder": "your@email.com",
+    "send": "שלח לי קישור",
+    "sending": "שולח",
+    "checkInbox": "פתח את המייל שלך ולחץ על הקישור.",
+    "error": "השליחה נכשלה. נסה שוב.",
+    "errorInvalidEmail": "כתובת מייל לא תקינה"
+  },
+  "setup": {
+    "title": "הגדרת ראשונית נדרשת",
+    "missingSupabase": "המפתחות של Supabase חסרים בקובץ .env.local",
+    "missingAnthropic": "המפתח של Anthropic חסר בקובץ .env.local",
+    "instructions": "פתח את README.md לקבלת הוראות מלאות.",
+    "showMissing": "מה חסר",
+    "wizard": {
+      "title": "הגדרה ראשונית",
+      "subtitle": "כמה דקות, ואתה מוכן לעבודה אמיתית. כל מה שכבר הגדרת מסומן ✓",
+      "configured": "מוגדר",
+      "missing": "חסר",
+      "required": "חובה",
+      "optional": "אופציונלי",
+      "copyEnv": "העתק שורות ל-.env.local",
+      "copySQL": "העתק SQL",
+      "copied": "הועתק!",
+      "openDashboard": "פתח dashboard",
+      "openConsole": "פתח console",
+      "restartHint": "אחרי שעדכנת את .env.local — הפעל מחדש את שרת הפיתוח (Ctrl+C ואז npm run dev)",
+      "refreshHint": "אם כל המפתחות הוזנו והשרת חזר — רענן את הדף לראות שהכל ירוק",
+      "supabase": {
+        "title": "Supabase — בסיס נתונים + אימות",
+        "description": "הבסיס של האפליקציה. שומר את הרעיונות, סוויפים, אנליטיקה. חינם עד 500MB.",
+        "step1": "פתח את supabase.com → New Project. תן שם, בחר אזור (Frankfurt או London מומלץ), קבע סיסמה ל-DB",
+        "step2": "אחרי שהפרויקט מוכן, לך ל-SQL Editor. צור query חדש, הדבק את כל ה-SQL מתחת, ולחץ Run.",
+        "step3": "ב-Storage — צור 2 buckets פרטיים: idea-images ו-videos",
+        "step4": "Project Settings → API. העתק את 3 המפתחות, הדבק ב-.env.local כפי שמופיע פה למטה",
+        "step5": "Authentication → URL Configuration. הוסף http://localhost:3000 ל-Site URL"
+      },
+      "anthropic": {
+        "title": "Anthropic — סוכני AI",
+        "description": "מפעיל את סוכן הקופי, ניתוח סרטונים, ושיחת פיתוח רעיון. תקציב: עד 50$ לחודש.",
+        "step1": "פתח את console.anthropic.com → Settings → API Keys → Create Key",
+        "step2": "חשוב: בלשונית Limits — קבע Spending Limit על 50$ כדי לא לחרוג בטעות",
+        "step3": "העתק את המפתח (יוצג פעם אחת בלבד!) ב-.env.local"
+      },
+      "youtube": {
+        "title": "YouTube Data API — ספריית הדרכה",
+        "description": "אופציונלי. שולף סרטונים מ-YouTube לדף הלמידה.",
+        "step1": "Google Cloud Console → APIs & Services → Library. הפעל YouTube Data API v3",
+        "step2": "Credentials → Create Credentials → API Key. העתק ל-.env.local"
+      },
+      "openai": {
+        "title": "OpenAI Whisper — תמלול קולי",
+        "description": "אופציונלי. מאפשר הקלטה קולית של רעיונות (תמלול אוטומטי לטקסט).",
+        "step1": "platform.openai.com → API keys → Create new secret key",
+        "step2": "העתק ל-.env.local"
+      },
+      "vapid": {
+        "title": "VAPID Keys — תזכורות Push",
+        "description": "אופציונלי. נדרש כדי לשלוח התראות push לדפדפן.",
+        "step1": "פתח טרמינל בתיקיית הפרויקט והרץ:",
+        "step2": "העתק את שני הערכים שיוצגו ל-.env.local (NEXT_PUBLIC_VAPID_PUBLIC_KEY ו-VAPID_PRIVATE_KEY)"
+      },
+      "allDone": "הכל מוגדר! לחץ כאן כדי לחזור לאפליקציה",
+      "goToApp": "חזור לאפליקציה"
+    }
+  },
+  "demo": {
+    "title": "מצב הדגמה",
+    "subtitle": "אתה רואה נתוני דוגמה. חבר Supabase ב-.env.local כדי לשמור באמת",
+    "ctaSetup": "איך מחברים?",
+    "saveBlocked": "במצב הדגמה — חבר Supabase כדי לשמור",
+    "dismiss": "הסתר"
+  },
+  "offline": {
+    "indicator": "אין חיבור לאינטרנט",
+    "syncing": "מסנכרן {count} פריטים...",
+    "synced": "סונכרן",
+    "queued": "יישמר כשתחזור לאינטרנט",
+    "queuedIdea": "הרעיון נשמר מקומית — יסתנכרן אוטומטית"
+  },
+  "common": {
+    "comingSoon": "בקרוב",
+    "underConstruction": "הפיצ'ר הזה בבנייה",
+    "back": "חזרה",
+    "save": "שמור",
+    "cancel": "ביטול",
+    "delete": "מחק",
+    "edit": "ערוך",
+    "loading": "טוען",
+    "error": "אירעה שגיאה",
+    "tryAgain": "נסה שוב"
+  },
+  "language": {
+    "switch": "החלף שפה",
+    "hebrew": "עברית",
+    "english": "English"
+  },
+  "channels": {
+    "title": "ניתוח ערוצים",
+    "subtitle": "הדבק קישור YouTube — שלך או של מישהו אחר — וקבל סטטיסטיקות ציבוריות + תובנות AI על מה עובד, מה לא, וההמלצות הבאות. בלי OAuth.",
+    "cardTitle": "נתח ערוץ YouTube",
+    "cardSubtitle": "קישור, handle (@שם) או channel ID",
+    "emptyState": "עדיין לא הוספת ערוצים. הדבק קישור למעלה כדי להתחיל.",
+    "instagramHint": "Instagram יתאפשר אחרי Meta App Review",
+    "tiktokHint": "TikTok יתאפשר אחרי TikTok App Review"
+  }
+}
