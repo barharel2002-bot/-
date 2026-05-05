@@ -257,6 +257,7 @@ const DEMO_POSTS: PostWithMetrics[] = [
     title: 'הריל על הטעויות שעשיתי כשהתחלתי',
     tone: 'educational',
     publishedAt: DAYS_AGO(1),
+    thumbnailUrl: null,
     metrics: {
       views: 12480,
       likes: 894,
@@ -274,6 +275,7 @@ const DEMO_POSTS: PostWithMetrics[] = [
     title: 'מאחורי הקלעים של העריכה',
     tone: 'personal',
     publishedAt: DAYS_AGO(2),
+    thumbnailUrl: null,
     metrics: {
       views: 1820,
       likes: 0,
@@ -291,6 +293,7 @@ const DEMO_POSTS: PostWithMetrics[] = [
     title: 'הספר שגרם לי לשנות גישה',
     tone: 'inspirational',
     publishedAt: DAYS_AGO(4),
+    thumbnailUrl: null,
     metrics: {
       views: 28930,
       likes: 1842,
@@ -308,6 +311,7 @@ const DEMO_POSTS: PostWithMetrics[] = [
     title: '5 שיעורים מהחודש',
     tone: 'value',
     publishedAt: DAYS_AGO(6),
+    thumbnailUrl: null,
     metrics: {
       views: 4210,
       likes: 312,
@@ -325,6 +329,7 @@ const DEMO_POSTS: PostWithMetrics[] = [
     title: 'ריל הקרוסלה השבועית',
     tone: 'educational',
     publishedAt: DAYS_AGO(8),
+    thumbnailUrl: null,
     metrics: null,
   },
 ];
@@ -366,6 +371,12 @@ export const DEMO_ANALYTICS: AnalyticsData = (() => {
       avgViews: Math.round(totalViews / withMetrics.length),
       totalEngagement: totalEng,
     },
+    insights: [
+      { emoji: '🚀', text: 'Your Shorts average 3× the views of long-form posts.' },
+      { emoji: '⏰', text: 'Tuesday 19:00 is your strongest publishing slot.' },
+      { emoji: '🎯', text: 'Inspirational tone outperforms educational by 2.3×.' },
+    ],
+    growthSeries: [],
   };
 })();
 
