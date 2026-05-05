@@ -7,7 +7,6 @@ import type { IdeaRow } from '@/lib/ideas/queries';
 import type { ProfileRow } from '@/lib/settings/queries';
 import type { MirrorData } from '@/lib/mirror/queries';
 import type { AnalyticsData, PostWithMetrics } from '@/lib/analytics/queries';
-import type { SwipeItemRow } from '@/lib/swipes/queries';
 import type { VideoAnalysisResult, ContentType, Tone } from '@/types';
 import type { CopyOutput } from '@/lib/ai/copy';
 
@@ -381,29 +380,9 @@ export const DEMO_ANALYTICS: AnalyticsData = (() => {
 })();
 
 // ===== Swipes =====
-export function makeDemoSwipeQueue(category: 'videos' | 'edit_styles' | 'photos'): SwipeItemRow[] {
-  const seeds: Array<{ title: string; author: string }> = [
-    { title: 'Hook structure: question → twist → payoff', author: '@studionotes' },
-    { title: 'Editing flow that holds attention 12s+', author: '@cutlab' },
-    { title: 'Color palette: warm cream + terra accent', author: '@visualdiet' },
-    { title: 'How to write captions people screenshot', author: '@wordcraft' },
-  ];
-  return seeds.map((s, i) => ({
-    id: `demo-swipe-${category}-${i}`,
-    user_id: DEMO_USER_ID,
-    category,
-    source_url: `https://example.com/${category}/${i + 1}`,
-    platform: i % 2 === 0 ? 'instagram' : 'tiktok',
-    thumbnail_url: null,
-    title: s.title,
-    author_name: s.author,
-    embed_html: null,
-    decision: null,
-    decided_at: null,
-    created_at: HOURS_AGO(i + 1),
-  }));
-}
-
+// Old DEMO swipe queue removed — three legacy pages (videos/edit/photos) are gone.
+// The redesigned /swipe page does not use demo data; it shows an empty state in
+// demo mode.
 export const DEMO_SWIPE_STATS = { liked: 23, skipped: 41 };
 
 // ===== Copy output =====
