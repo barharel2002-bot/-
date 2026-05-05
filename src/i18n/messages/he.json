@@ -8,9 +8,6 @@
     "ideas": "רעיונות",
     "analyze": "בדיקת סרטון",
     "swipe": "סגנון",
-    "swipeVideos": "סרטונים",
-    "swipeStyles": "סגנונות עריכה",
-    "swipePhotos": "תמונות וקרוסלות",
     "mirror": "השבוע",
     "learn": "למידה",
     "copy": "כתיבה",
@@ -282,16 +279,6 @@
     "categories_label": "קטגוריות שאני עוקב",
     "creators_label": "יוצרים שאני לומד מהם",
     "no_categories_or_creators": "בחר קטגוריה או הוסף יוצר כדי להתחיל.",
-    "tabs": {
-      "videos": "Shorts ו-Reels",
-      "styles": "סגנונות עריכה",
-      "photos": "תמונות"
-    },
-    "subtitle": {
-      "videos": "הדבק קישורים ל-YouTube Shorts (או סרטוני YouTube) שמדברים אליך — האפליקציה תלמד את הטעם שלך והתובנות יעלו ביצירה.",
-      "styles": "אסתטיקות עריכה — מה הסגנון שמדבר אליך?",
-      "photos": "פוסטים סטילים וקרוסלות — מה התחושה?"
-    },
     "addLink": {
       "label": "הדבק קישור",
       "placeholder": "https://www.youtube.com/shorts/... או קישור YouTube רגיל",
@@ -370,22 +357,6 @@
     "shortLabel": "SHORT",
     "totalUploads": "סה\"כ {count} העלאות"
   },
-  "publish": {
-    "markAsPublished": "סמן כפורסם",
-    "title": "תיעוד פרסום",
-    "subtitle": "מלא לפי הצורך — נשתמש במידע ב'מראה השבועית' ובאנליטיקה",
-    "typeLabel": "סוג התוכן",
-    "platformLabel": "פלטפורמה",
-    "toneLabel": "טון",
-    "platforms": {
-      "instagram": "Instagram",
-      "tiktok": "TikTok",
-      "both": "שניהם"
-    },
-    "save": "שמור פרסום",
-    "saved": "נרשם בהצלחה",
-    "skipTone": "לא משנה"
-  },
   "learn": {
     "title": "למידה",
     "subtitle": "סרטוני YouTube שיעזרו לך לצמוח כיוצר",
@@ -422,33 +393,18 @@
       "title": "עדיין אין נתונים לניתוח",
       "subtitle": "אחרי שתעבור על רעיון ותסמן \"פורסם\" — תוכל להזין כאן צפיות, לייקים ושיתופים."
     },
-    "addMetrics": "הזן מדדים",
-    "editMetrics": "עדכן מדדים",
     "noMetricsYet": "אין מדדים",
-    "form": {
-      "title": "מדדי ביצוע",
-      "subtitle": "הזן את הנתונים מהרשת. אפשר לעדכן בכל זמן.",
-      "views": "צפיות",
-      "likes": "לייקים",
-      "saves": "שמירות",
-      "shares": "שיתופים",
-      "comments": "תגובות",
-      "avgWatchTime": "זמן צפייה ממוצע (שניות)",
-      "save": "שמור",
-      "saved": "נשמר"
-    },
     "charts": {
       "byType": "ביצועים לפי סוג תוכן",
       "byTone": "ביצועים לפי טון",
       "byHour": "ביצועים לפי שעת פרסום",
-      "noData": "אין מספיק נתונים לגרף — הזן מדדים לפחות לפוסט אחד"
+      "noData": "אין מספיק נתונים לגרף"
     },
     "metrics": {
       "avgViews": "ממוצע צפיות",
       "totalPosts": "סה\"כ פוסטים",
       "totalEngagement": "סה\"כ אינטראקציות"
     },
-    "todoIntegration": "Instagram + TikTok נדרשים App Review של Meta/TikTok להפעלה אמיתית",
     "competitor": {
       "title": "הוסף ערוץ",
       "subtitle": "הדבק קישור, handle (@שם) או channel ID של YouTube",

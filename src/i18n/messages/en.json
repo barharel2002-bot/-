@@ -8,9 +8,6 @@
     "ideas": "Ideas",
     "analyze": "Video check",
     "swipe": "Style",
-    "swipeVideos": "Videos",
-    "swipeStyles": "Edit styles",
-    "swipePhotos": "Photos & carousels",
     "mirror": "This week",
     "learn": "Learn",
     "copy": "Writing",
@@ -248,16 +245,6 @@
     "categories_label": "Categories I follow",
     "creators_label": "Creators I'm learning from",
     "no_categories_or_creators": "Pick a category or add a creator to get started.",
-    "tabs": {
-      "videos": "Shorts & Reels",
-      "styles": "Edit styles",
-      "photos": "Photos"
-    },
-    "subtitle": {
-      "videos": "Paste links to YouTube Shorts (or YouTube videos) that resonate — the app learns your taste and feeds it back into idea generation.",
-      "styles": "Edit aesthetics — which style speaks to you?",
-      "photos": "Still posts and carousels — what is the vibe?"
-    },
     "addLink": {
       "label": "Paste a link",
       "placeholder": "https://www.youtube.com/shorts/... or any YouTube video link",
@@ -336,22 +323,6 @@
     "shortLabel": "SHORT",
     "totalUploads": "{count} uploads total"
   },
-  "publish": {
-    "markAsPublished": "Mark as published",
-    "title": "Log a published post",
-    "subtitle": "Fill what's relevant — used in your weekly mirror and analytics",
-    "typeLabel": "Content type",
-    "platformLabel": "Platform",
-    "toneLabel": "Tone",
-    "platforms": {
-      "instagram": "Instagram",
-      "tiktok": "TikTok",
-      "both": "Both"
-    },
-    "save": "Save",
-    "saved": "Logged",
-    "skipTone": "No preference"
-  },
   "learn": {
     "title": "Learn",
     "subtitle": "YouTube videos to help you grow as a creator",
@@ -388,33 +359,18 @@
       "title": "No data to analyze yet",
       "subtitle": "After you mark an idea as published, come here to log views, likes, and shares."
     },
-    "addMetrics": "Log metrics",
-    "editMetrics": "Update metrics",
     "noMetricsYet": "No metrics yet",
-    "form": {
-      "title": "Performance metrics",
-      "subtitle": "Enter the numbers from the platform. Update anytime.",
-      "views": "Views",
-      "likes": "Likes",
-      "saves": "Saves",
-      "shares": "Shares",
-      "comments": "Comments",
-      "avgWatchTime": "Avg watch time (seconds)",
-      "save": "Save",
-      "saved": "Saved"
-    },
     "charts": {
       "byType": "Performance by content type",
       "byTone": "Performance by tone",
       "byHour": "Performance by hour posted",
-      "noData": "Not enough data — log metrics for at least one post"
+      "noData": "Not enough data"
     },
     "metrics": {
       "avgViews": "Avg views",
       "totalPosts": "Total posts",
       "totalEngagement": "Total interactions"
     },
-    "todoIntegration": "TODO: Auto integration with Instagram Graph + TikTok Display API — future milestone",
     "competitor": {
       "title": "Add a channel",
       "subtitle": "Paste a link, handle (@name), or YouTube channel ID",
