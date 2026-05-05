@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import { listUploadsPlaylist, fetchVideoDetails } from './videos';
 import { getQuotaToday, isOverQuotaThreshold } from './quota';
 import { analyzeTone } from './tone';
+import { generateInsights } from '@/lib/analytics/insights';
 import type { SyncResult, SyncedVideo } from './types';
 
 const SYNC_TTL_MS = 24 * 60 * 60 * 1000; // 24h
@@ -91,6 +92,27 @@ export async function syncUserYouTubeData(
         .eq('id', userId);
     } catch (e: any) {
       console.error('[youtube.sync] tone analysis failed:', e.message);
+    }
+
+    // 6.6. Insights generation (cached on profile, displayed atop Analytics)
+    try {
+      const { data: ideas } = await supabase
+        .from('ideas')
+        .select('content')
+        .eq('user_id', userId)
+        .limit(20);
+      const ideasContext = (ideas ?? [])
+        .map((i: any) => `- ${i.content}`)
+        .join('\n');
+      const insights = await generateInsights(videos, ideasContext);
+      if (insights.length > 0) {
+        await supabase
+          .from('profiles')
+          .update({ youtube_insights_cache: insights })
+          .eq('id', userId);
+      }
+    } catch (e: any) {
+      console.error('[youtube.sync] insights failed:', e.message);
     }
 
     // 7. Stats history snapshot for today (first sync of day wins)
