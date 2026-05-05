@@ -1,14 +1,14 @@
-import { setRequestLocale } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { isSupabaseConfigured } from '@/lib/config';
 import { DemoBanner } from '@/components/shared/demo-banner';
 import { fetchAnalytics } from '@/lib/analytics/queries';
 import { AnalyticsPage } from '@/components/analytics/analytics-page';
 import { DEMO_ANALYTICS } from '@/lib/demo/data';
+import { syncUserYouTubeData } from '@/lib/youtube/sync';
+import { YouTubeChannelInput } from '@/components/shared/YouTubeChannelInput';
+import { createClient } from '@/lib/supabase/server';
 
-// Manual-entry analytics for the user's own posts. URL-based YouTube channel
-// analysis and AI insights live on /channels (separate page, separate sidebar
-// entry).
 export default async function Page({
   params,
 }: {
@@ -18,12 +18,56 @@ export default async function Page({
   setRequestLocale(locale);
 
   const demo = !isSupabaseConfigured();
-  const data = demo ? DEMO_ANALYTICS : await fetchAnalytics();
+
+  if (demo) {
+    return (
+      <div className="space-y-6">
+        <Header />
+        <DemoBanner />
+        <AnalyticsPage data={DEMO_ANALYTICS} />
+      </div>
+    );
+  }
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return null;
+
+  const syncResult = await syncUserYouTubeData(user.id);
+
+  if (syncResult.status === 'no-channel') {
+    const t = await getTranslations('youtube');
+    return (
+      <div className="space-y-6">
+        <Header />
+        <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-6">
+          <p className="text-base mb-4">{t('inline_prompt')}</p>
+          <YouTubeChannelInput variant="inline" />
+        </div>
+      </div>
+    );
+  }
+
+  const t = await getTranslations('youtube');
+  const banner =
+    syncResult.status === 'quota-exceeded'
+      ? t('quota_exceeded')
+      : syncResult.status === 'error'
+        ? 'Could not refresh from YouTube. Showing cached data.'
+        : null;
+
+  const data = await fetchAnalytics();
 
   return (
     <div className="space-y-6">
       <Header />
-      {demo && <DemoBanner />}
+      {banner && (
+        <div className="rounded border border-amber-700 bg-amber-950/40 p-3 text-sm text-amber-200">
+          {banner}
+        </div>
+      )}
       <AnalyticsPage data={data} />
     </div>
   );

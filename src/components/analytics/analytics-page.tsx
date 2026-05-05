@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import {
   BarChart3,
@@ -8,14 +7,11 @@ import {
   Heart,
   Sparkles,
   TrendingUp,
-  Plus,
-  Edit3,
-  Info,
 } from 'lucide-react';
 import { format } from 'date-fns';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { MetricsDialog } from './metrics-dialog';
+import { InsightsCard } from './InsightsCard';
+import { GrowthChart } from './GrowthChart';
 import type {
   AnalyticsData,
   PostWithMetrics,
@@ -27,7 +23,6 @@ type Props = {
 
 export function AnalyticsPage({ data }: Props) {
   const t = useTranslations('analytics');
-  const [editingPost, setEditingPost] = useState<PostWithMetrics | null>(null);
 
   if (data.posts.length === 0) {
     return <EmptyState />;
@@ -35,11 +30,8 @@ export function AnalyticsPage({ data }: Props) {
 
   return (
     <div className="space-y-6 animate-fade-in">
-      {/* TODO note */}
-      <p className="flex items-start gap-2 rounded-lg border border-border bg-card/50 p-3 text-xs text-muted-foreground">
-        <Info className="mt-0.5 h-3.5 w-3.5 flex-shrink-0" />
-        <span>{t('todoIntegration')}</span>
-      </p>
+      {/* AI insights summary (top) */}
+      <InsightsCard bullets={data.insights} />
 
       {/* Top stats */}
       <div className="grid grid-cols-3 gap-3">
@@ -60,7 +52,15 @@ export function AnalyticsPage({ data }: Props) {
         />
       </div>
 
-      {/* Charts */}
+      {/* Growth-over-time */}
+      <Card className="p-6">
+        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+          {t('growth_30d')}
+        </h2>
+        <GrowthChart series={data.growthSeries} />
+      </Card>
+
+      {/* Comparison charts */}
       {data.hasAnyMetrics ? (
         <div className="space-y-6">
           <ChartCard
@@ -91,22 +91,9 @@ export function AnalyticsPage({ data }: Props) {
           {t('metrics.totalPosts')}
         </h2>
         {data.posts.map((post) => (
-          <PostRow
-            key={post.id}
-            post={post}
-            onEdit={() => setEditingPost(post)}
-          />
+          <PostRow key={post.id} post={post} />
         ))}
       </div>
-
-      {/* Edit dialog */}
-      {editingPost && (
-        <MetricsDialog
-          post={editingPost}
-          open={!!editingPost}
-          onOpenChange={(o) => !o && setEditingPost(null)}
-        />
-      )}
     </div>
   );
 }
@@ -226,13 +213,7 @@ function HourChart({
   );
 }
 
-function PostRow({
-  post,
-  onEdit,
-}: {
-  post: PostWithMetrics;
-  onEdit: () => void;
-}) {
+function PostRow({ post }: { post: PostWithMetrics }) {
   const t = useTranslations('analytics');
   const tMirror = useTranslations('mirror');
   const date = format(new Date(post.publishedAt), 'dd/MM');
@@ -245,33 +226,19 @@ function PostRow({
             <span className="rounded-full bg-creator-gradient-soft px-2 py-0.5 text-creator-purple">
               {tMirror(`contentTypes.${post.type}` as any)}
             </span>
-            {post.platform && (
-              <span className="text-muted-foreground">· {post.platform}</span>
-            )}
             <span className="text-muted-foreground">· {date}</span>
           </div>
           {post.title && (
             <p className="line-clamp-2 text-sm leading-snug">{post.title}</p>
           )}
         </div>
-        <Button variant="ghost" size="sm" onClick={onEdit}>
-          {post.metrics ? <Edit3 className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
-          <span className="hidden sm:inline">
-            {post.metrics ? t('editMetrics') : t('addMetrics')}
-          </span>
-        </Button>
       </div>
 
       {post.metrics ? (
-        <div className="grid grid-cols-3 gap-2 text-xs sm:grid-cols-6">
+        <div className="grid grid-cols-3 gap-2 text-xs">
           <Metric label="Views" value={post.metrics.views} />
           <Metric label="Likes" value={post.metrics.likes} />
-          <Metric label="Saves" value={post.metrics.saves} />
-          <Metric label="Shares" value={post.metrics.shares} />
           <Metric label="Comments" value={post.metrics.comments} />
-          {post.metrics.avgWatchTimeSec !== null && (
-            <Metric label="Watch" value={post.metrics.avgWatchTimeSec} suffix="s" />
-          )}
         </div>
       ) : (
         <p className="text-xs italic text-muted-foreground">{t('noMetricsYet')}</p>
