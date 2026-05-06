@@ -1,3 +1,5 @@
+export const dynamic = 'force-static';
+
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations, useLocale } from 'next-intl';
 import { Check, Sparkles, Crown, Zap } from 'lucide-react';

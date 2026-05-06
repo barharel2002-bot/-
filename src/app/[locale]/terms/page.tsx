@@ -1,3 +1,5 @@
+export const dynamic = 'force-static';
+
 import { setRequestLocale } from 'next-intl/server';
 import { useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';

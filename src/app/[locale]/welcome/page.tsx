@@ -1,3 +1,7 @@
+// Force-static: this page has no per-user data — pre-render at build time
+// and serve from Netlify's edge CDN. Drops cold-start time from ~7s to <100ms.
+export const dynamic = 'force-static';
+
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations, useLocale } from 'next-intl';
 import {
