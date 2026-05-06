@@ -3,6 +3,135 @@
     "name": "Creator Mode",
     "tagline": "AI toolkit for YouTube creators"
   },
+  "welcome": {
+    "hero": {
+      "badge": "AI for YouTube creators",
+      "titleA": "Stop getting stuck",
+      "titleB": "on titles, descriptions & thumbnails.",
+      "subtitle": "An AI toolkit that does the writing and design work for your YouTube videos — give an idea, get a winning title, full description, thumbnail concept, and 5 ideas for your next video.",
+      "ctaPrimary": "Start free",
+      "ctaSecondary": "See pricing",
+      "noCard": "5 free AI calls per month. No credit card."
+    },
+    "features": {
+      "heading": "4 features that save hours",
+      "sub": "Everything a YouTube creator needs — in one place.",
+      "cards": {
+        "titles": {
+          "title": "YouTube Titles",
+          "desc": "5 variations with angle, length scoring, SEO keywords."
+        },
+        "thumbnails": {
+          "title": "Thumbnails",
+          "desc": "3 concepts using proven patterns, colors, winning text."
+        },
+        "findNext": {
+          "title": "Find your next video",
+          "desc": "Stuck? Answer 5 questions — get 5 ideas with hooks."
+        },
+        "analyze": {
+          "title": "Video Check",
+          "desc": "AI Vision analyzes your raw video before upload."
+        }
+      }
+    },
+    "how": {
+      "heading": "How it works",
+      "step1": {
+        "title": "Sign in",
+        "desc": "Google sign-in or magic email link."
+      },
+      "step2": {
+        "title": "Drop in an idea",
+        "desc": "Describe your video, or tell us what you're stuck on."
+      },
+      "step3": {
+        "title": "Get publish-ready output",
+        "desc": "Titles, description, thumbnail, ideas — in 15 seconds."
+      }
+    },
+    "pricingTeaser": {
+      "heading": "Start free, upgrade when you want",
+      "sub": "Free gives you 5 AI calls per month. Paid plans add channel sync, automated insights, and unlimited AI.",
+      "bullets": {
+        "t1": "Free — 5 AI calls/mo, single feature",
+        "t2": "Creator $12/mo — all features, 50 calls/mo",
+        "t3": "Pro $29/mo — unlimited, multi-channel, alerts"
+      },
+      "cta": "See full pricing"
+    },
+    "footer": {
+      "pricing": "Pricing",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "copy": "Creator Mode"
+    }
+  },
+  "pricing": {
+    "heading": "Simple pricing. Pick what you need.",
+    "sub": "No hidden trials. No threatening downgrades. Cancel anytime — from settings.",
+    "mostPopular": "Most popular",
+    "tiers": {
+      "free": {
+        "name": "Free",
+        "tagline": "Taste",
+        "price": "$0",
+        "period": "/forever",
+        "cta": "Start free"
+      },
+      "creator": {
+        "name": "Creator",
+        "tagline": "For solo creators",
+        "price": "$12",
+        "period": "/month",
+        "cta": "Start 7-day trial"
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "For serious creators",
+        "price": "$29",
+        "period": "/month",
+        "cta": "Start 7-day trial"
+      }
+    },
+    "bullets": {
+      "ai5": "5 AI calls / month",
+      "titles": "Title generator (1 feature)",
+      "community": "Community support",
+      "noCard": "No credit card",
+      "ai50": "50 AI calls / month",
+      "allFeatures": "All features unlocked",
+      "channelLink": "YouTube channel sync",
+      "priority": "Priority processing",
+      "cancel": "Cancel anytime",
+      "unlimited": "Unlimited AI",
+      "multiChannel": "Multi-channel (agencies)",
+      "alerts": "Viral video alerts",
+      "earlyAccess": "Early access to new features"
+    },
+    "faq": {
+      "heading": "FAQ",
+      "cancel": {
+        "q": "How do I cancel?",
+        "a": "Settings → 'Subscription' → 'Cancel'. Cancellation takes effect at end of current billing period, you keep access until then."
+      },
+      "budget": {
+        "q": "What if I exceed my AI calls?",
+        "a": "Free: paused until next month. Creator: 50 is a soft cap — if you're heavy, just upgrade to Pro."
+      },
+      "upgrade": {
+        "q": "What if I need to upgrade mid-month?",
+        "a": "You only pay the prorated difference. Lemon Squeezy handles it automatically."
+      },
+      "data": {
+        "q": "What happens to my data if I cancel?",
+        "a": "Kept for 90 days post-cancellation — you can come back without losing things. After 90 days, deleted automatically."
+      }
+    },
+    "back": "Back",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
   "nav": {
     "home": "Home",
     "ideas": "Ideas",

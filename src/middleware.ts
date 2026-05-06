@@ -5,8 +5,15 @@ import { updateSession } from './lib/supabase/middleware';
 
 const intlMiddleware = createIntlMiddleware(routing);
 
-// דפים שלא דורשים authentication
-const PUBLIC_PATHS = ['/auth', '/auth/callback'];
+// דפים שלא דורשים authentication (auth, marketing, legal)
+const PUBLIC_PATHS = [
+  '/auth',
+  '/auth/callback',
+  '/welcome',
+  '/pricing',
+  '/privacy',
+  '/terms',
+];
 
 function isPublicPath(pathname: string): boolean {
   // דפים תחת /[locale]/auth/... וגם /auth/callback
