@@ -38,7 +38,6 @@ const SIDEBAR_ITEMS: NavItem[] = [
   { href: '/copy', labelKey: 'yt_description', icon: PenLine },
   { href: '/thumbnail', labelKey: 'yt_thumbnail', icon: ImageIcon },
   { href: '/analyze', labelKey: 'analyze', icon: Video },
-  { href: '/channels', labelKey: 'channels', icon: TrendingUp },
   { href: '/analytics', labelKey: 'analytics', icon: BarChart3 },
   { href: '/swipe/videos', labelKey: 'swipe', icon: ArrowLeftRight },
   { href: '/learn', labelKey: 'learn', icon: BookOpen },

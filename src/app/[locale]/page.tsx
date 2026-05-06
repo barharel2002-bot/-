@@ -7,7 +7,6 @@ import {
   BarChart3,
   Settings as SettingsIcon,
   Sparkles,
-  TrendingUp,
   ArrowLeft,
   ArrowRight,
   Compass,
@@ -58,7 +57,6 @@ type FeatureKey =
   | 'ytDescription'
   | 'ytThumbnail'
   | 'analyze'
-  | 'channels'
   | 'swipe'
   | 'learn'
   | 'analytics'
@@ -71,7 +69,6 @@ const FEATURES: { key: FeatureKey; href: string; icon: typeof Lightbulb }[] = [
   { key: 'ytDescription', href: '/copy', icon: PenLine },
   { key: 'ytThumbnail', href: '/thumbnail', icon: ImageIcon },
   { key: 'analyze', href: '/analyze', icon: Video },
-  { key: 'channels', href: '/channels', icon: TrendingUp },
   { key: 'analytics', href: '/analytics', icon: BarChart3 },
   { key: 'swipe', href: '/swipe/videos', icon: ArrowLeftRight },
   { key: 'learn', href: '/learn', icon: BookOpen },

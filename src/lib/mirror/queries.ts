@@ -120,12 +120,9 @@ export async function fetchMirrorData(): Promise<MirrorData | null> {
       .eq('decision', 'liked')
       .order('decided_at', { ascending: false })
       .limit(8),
-    // ערוצים במעקב — נשתמש ב-recentVideos שכבר נשמרו ב-latest_stats
-    supabase
-      .from('tracked_channels')
-      .select('channel_name, channel_handle, channel_thumbnail, latest_stats')
-      .eq('user_id', user.id)
-      .eq('platform', 'youtube'),
+    // ערוצים במעקב — הטבלה הוסרה במיגרציה של 2026-05-05.
+    // עוטפים ב-Promise.resolve כדי שלא יזרוק שגיאה. הסקציה תוצג ריקה.
+    Promise.resolve({ data: [] as any[] }),
   ]);
 
   const postedRows = postedRes.data ?? [];
