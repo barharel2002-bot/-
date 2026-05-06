@@ -28,9 +28,10 @@ export function CopyDemo({ ideaText, output }: Props) {
       </div>
 
       <div className="space-y-4 animate-fade-in">
-        <OutputCard label={t('caption')} text={output.caption} />
+        <OutputCard label={t('description')} text={output.description} />
         <HooksCard label={t('hooks')} hooks={output.hooks} />
-        <HashtagsCard label={t('hashtags')} hashtags={output.hashtags} />
+        <TagsCard label={t('tags')} tags={output.tags} />
+        <OutputCard label={t('pinnedComment')} text={output.pinnedComment} />
       </div>
     </div>
   );
@@ -74,14 +75,8 @@ function HooksCard({ label, hooks }: { label: string; hooks: string[] }) {
   );
 }
 
-function HashtagsCard({
-  label,
-  hashtags,
-}: {
-  label: string;
-  hashtags: string[];
-}) {
-  const joined = hashtags.map((h) => `#${h}`).join(' ');
+function TagsCard({ label, tags }: { label: string; tags: string[] }) {
+  const joined = tags.join(', ');
   return (
     <Card className="space-y-3 p-5">
       <div className="flex items-center justify-between">
@@ -91,12 +86,12 @@ function HashtagsCard({
         <CopyButton text={joined} />
       </div>
       <div className="flex flex-wrap gap-1.5">
-        {hashtags.map((h) => (
+        {tags.map((tag) => (
           <span
-            key={h}
-            className="rounded-full bg-creator-gradient-soft px-2.5 py-1 text-xs text-creator-purple"
+            key={tag}
+            className="rounded bg-creator-gradient-soft px-2 py-0.5 text-xs text-creator-purple"
           >
-            #{h}
+            {tag}
           </span>
         ))}
       </div>

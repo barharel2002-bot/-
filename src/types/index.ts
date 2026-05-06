@@ -28,7 +28,7 @@ export type ReminderFrequency =
   | 'twice_week'
   | 'weekly';
 
-export type AgentType = 'copy' | 'analyze' | 'develop';
+export type AgentType = 'copy' | 'analyze' | 'develop' | 'title' | 'thumbnail';
 
 // תוצאת ניתוח סרטון מ-Claude
 // platform כאן הוא פורמט יעד (לא פלטפורמה כללית): story / reel / tiktok / post

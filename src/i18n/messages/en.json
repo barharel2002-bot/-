@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "Creator Mode",
-    "tagline": "Every moment is an opportunity"
+    "tagline": "AI toolkit for YouTube creators"
   },
   "nav": {
     "home": "Home",
@@ -18,46 +18,65 @@
     "settings": "Settings",
     "more": "More",
     "channels": "Channel analysis",
-    "findNext": "Find your next video"
+    "findNext": "Find your next video",
+    "yt_titles": "YouTube Titles",
+    "yt_thumbnail": "Thumbnails",
+    "yt_description": "YT Description"
   },
   "home": {
     "greeting": "Welcome back",
-    "subgreeting": "What will you create today?",
+    "subgreeting": "What's your next YouTube video?",
     "addIdea": "Add idea",
     "quickActions": "Quick actions",
     "exploreFeatures": "What would you like to do?",
     "features": {
       "ideas": {
         "title": "Ideas",
-        "description": "Every spark in one place"
+        "description": "Every video spark in one place"
+      },
+      "findNext": {
+        "title": "Find your next video",
+        "description": "Stuck? Answer 5 questions, get 5 ideas with hooks"
+      },
+      "ytTitles": {
+        "title": "YouTube Titles",
+        "description": "5 titles with different angles, length scoring, SEO"
+      },
+      "ytDescription": {
+        "title": "YouTube Description",
+        "description": "Full description + hooks + tags + pinned comment"
+      },
+      "ytThumbnail": {
+        "title": "Thumbnails",
+        "description": "3 concepts with proven patterns, colors, and overlay text"
       },
       "analyze": {
         "title": "Video check",
-        "description": "Upload raw, get insight before posting"
+        "description": "Upload raw, get AI insights before publishing"
       },
       "swipe": {
         "title": "Style",
-        "description": "Swipe right on what you love"
+        "description": "Swipe right on YouTube Shorts you love"
       },
       "mirror": {
         "title": "This week",
-        "description": "What you made, what's stuck, what you missed"
+        "description": "What you uploaded, what's stuck, what you missed"
       },
       "learn": {
         "title": "Learn",
-        "description": "Content to help you grow"
+        "description": "YouTube videos to help you grow as a creator"
       },
       "copy": {
         "title": "Writing",
-        "description": "Captions, hooks and hashtags"
+        "description": "YouTube description + hooks + tags"
       },
       "analytics": {
         "title": "Performance",
-        "description": "What works and what doesn't"
+        "description": "What's working in your channel — with AI insights"
       },
       "settings": {
         "title": "Settings",
-        "description": "Your why, language and more"
+        "description": "Your channel, your why, language and more"
       },
       "channels": {
         "title": "Channel analysis",
@@ -173,6 +192,59 @@
       "signOut": "Sign out"
     }
   },
+  "thumbnail": {
+    "title": "Thumbnail Concepts",
+    "subtitle": "3 distinct thumbnail concepts — each using a different pattern (contrast face / before-after / numbered / object focus / red circle), with the exact text overlay, expression, color palette, and composition. Thumbnails drive 60-80% of YouTube CTR.",
+    "explainerTitle": "Why thumbnails decide everything",
+    "explainerBullets": {
+      "ctr": "YouTube's own research: thumbnails account for 60-80% of CTR",
+      "patterns": "5 patterns that work in 2026: contrast face, before/after, numbered, object focus, red circle",
+      "mobile": "70% of viewers are on mobile — text must be readable at 180px wide",
+      "abTest": "Recommended: A/B test between two concepts — YouTube supports it natively in Studio"
+    },
+    "ideaLabel": "What's the video",
+    "ideaPlaceholder": "Describe the video: what it's about, the hook, what the viewer must see immediately. The more detail, the sharper the concepts.",
+    "generate": "Generate 3 concepts",
+    "generating": "Thinking...",
+    "error": "Submission failed. Try again.",
+    "result": {
+      "title": "Your 3 concepts",
+      "again": "Generate again",
+      "concept": "Concept",
+      "textOverlay": "Thumbnail text",
+      "expression": "Expression / body language",
+      "composition": "Composition",
+      "colors": "Color palette",
+      "why": "Why this works"
+    }
+  },
+  "title": {
+    "title": "YouTube Titles",
+    "subtitle": "5 title variations tailored to your video idea — each with a different angle (curiosity / authority / contrarian / story / data), length scoring, and SEO keywords. The title is 80% of YouTube CTR — this is the most important feature.",
+    "explainerTitle": "Why YouTube titles are different",
+    "explainerBullets": {
+      "lengthMatters": "Sweet spot is 50-65 chars — too short = lose SEO, too long = truncated on mobile",
+      "angles": "5 different angles = 5 experiments — pick the best one or A/B test",
+      "seo": "YouTube is a search engine: keywords must be at the front",
+      "abTest": "Pro tip: publish with the strongest 2 titles, swap after 24h if CTR drops"
+    },
+    "ideaLabel": "What's the video",
+    "ideaPlaceholder": "Describe the video: what it's about, what the audience learns or sees, the main hook. The more detail, the sharper the titles.",
+    "generate": "Generate 5 titles",
+    "generating": "Thinking...",
+    "error": "Submission failed. Try again.",
+    "angles": {
+      "curiosity": "Curiosity",
+      "authority": "Authority / Numbers",
+      "contrarian": "Contrarian",
+      "story": "Personal story",
+      "data": "Data / Result"
+    },
+    "result": {
+      "title": "Your 5 titles",
+      "again": "Generate again"
+    }
+  },
   "findNext": {
     "title": "Find your next video",
     "subtitle": "Stuck and not sure what to create now? Answer 5 short questions and AI will return a strategic direction, 5 concrete video ideas you can shoot tomorrow, and 2-3 tips tailored to exactly what's blocking you.",
@@ -223,23 +295,24 @@
     }
   },
   "copy": {
-    "title": "Writing",
-    "subtitle": "An AI agent that writes ready-to-publish captions, 3 different opening hooks, and 12 hashtags — from your raw idea, in your tone, in your language.",
-    "explainerTitle": "How this helps creators",
+    "title": "YouTube Description",
+    "subtitle": "An AI agent that writes a ready-to-publish YouTube description (250-400 words), 3 alternative opening lines (the above-the-fold preview), 10-15 SEO tags, and a pinned comment — from your raw idea, in your tone, in your language.",
+    "explainerTitle": "How this helps YouTube creators",
     "explainerBullets": {
-      "speed": "Raw sentence in, ready-to-publish post out — in 15 seconds",
-      "options": "3 hooks = more angles for different posts, or for A/B testing",
+      "speed": "Raw idea → full upload-ready description in 15 seconds",
+      "options": "3 hooks = 3 different attempts at what shows above 'Show more'",
       "memory": "When you mark 'not a fit' with a reason, the agent remembers and improves on every next call",
-      "hashtags": "Hashtags are tailored to your niche, not generic #instagood"
+      "hashtags": "SEO tags, not IG/TikTok hashtags. Pinned comment that sparks real engagement."
     },
     "ideaLabel": "The idea",
-    "ideaPlaceholder": "What do you want to write? Video content, free context, or an idea from your idea board.",
-    "generate": "Generate copy",
+    "ideaPlaceholder": "What's the video? Content, context, or an idea from your idea board.",
+    "generate": "Generate YouTube description",
     "generating": "Generating...",
     "regenerate": "Regenerate",
-    "caption": "Caption",
-    "hooks": "Opening options (hooks)",
-    "hashtags": "Hashtags",
+    "description": "Video description",
+    "hooks": "Opening options (above-the-fold preview)",
+    "tags": "SEO tags",
+    "pinnedComment": "Pinned comment",
     "copy": "Copy",
     "copied": "Copied",
     "notAFit": "Not a fit",
@@ -254,7 +327,7 @@
   },
   "analyze": {
     "title": "Video check",
-    "subtitle": "Upload a raw video *before* posting — Claude (AI Vision) analyzes it frame by frame and returns a full diagnostic: whether to post at all, when (day & hour), which platform fits best (Instagram / TikTok / YouTube), how strong the hook is, how the video connects to your message, and concrete improvement tips. Your video never leaves your device — only frames are sent to AI.",
+    "subtitle": "Upload a raw video *before* uploading to YouTube — Claude (AI Vision) analyzes it frame by frame and returns a full diagnostic: whether to upload at all, the best day & hour, whether it fits better as a Short or Long-form, how strong the hook is, how the video connects to your message, and concrete improvement tips. Your video never leaves your device — only frames are sent to AI.",
     "explainerTitle": "What you get back",
     "explainerBullets": {
       "platform": "Platform recommendation — where this video will land best",

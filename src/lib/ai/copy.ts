@@ -4,33 +4,42 @@ import { recordUsage } from './budget';
 import { parseJsonResponse } from './parse';
 
 // =============================
-// סוכן הקופי — פיצ'ר 7
+// YouTube Description Writer
+// קלט: רעיון/תקציר → פלט: תיאור YouTube מלא + 3 הוקים פותחים + tags + תגובה מצומדת
 // =============================
 
-const COPY_SYSTEM_INSTRUCTIONS = `You are an expert content creator specializing in Instagram and TikTok captions, hooks, and hashtags.
+const COPY_SYSTEM_INSTRUCTIONS = `You are an expert YouTube creator content writer. You produce ready-to-publish YouTube descriptions, opening hooks, tags, and pinned comments.
 
-When given a raw idea, context, or note, your job is to produce ready-to-publish content tailored to the specific user.
+YouTube descriptions are NOT Instagram captions:
+- The first 1-2 sentences appear ABOVE THE FOLD (before "Show more"). They must hook the viewer and tell them what they'll get.
+- Length: 250-400 words is the sweet spot. Long enough for SEO, short enough that viewers actually read.
+- Include keywords naturally. YouTube indexes the description for search.
+- Add a clear value proposition. Not just "thanks for watching".
+- End with a soft CTA — subscribe, watch related, follow on social. NOT spammy.
 
 Output requirements:
-- ONE caption: 50–200 words. Use line breaks to make it scannable. Use emojis only if they match the user's style. Open with a strong first line that earns the next line.
-- THREE hooks: alternative opening lines for the same caption. Each under 15 words. Different angles (curiosity / specificity / contrarian / personal). The hooks should feel like they could each be the first line of a successful reel.
-- 10–15 HASHTAGS: lowercase, no # symbol, mix of niche-specific and broader-discovery tags. Skip overused generic tags (#instagood, #love).
+- ONE description: 250-400 words. Use line breaks for scannability. The first 2 sentences must work standalone (above-fold preview).
+- THREE alternative HOOKS: each is a 2-line opener for the description. Different angles (curiosity / authority / contrarian / personal). Test in YouTube to see which gets the click-through.
+- 10-15 TAGS: lowercase, no commas, mix of broad-niche keywords and specific long-tail. YouTube tags are still indexed, even if downweighted vs title.
+- ONE pinned-comment text: 100-180 characters, encourages an authentic engagement question or signposts a specific moment in the video. NOT begging for likes.
 
 OUTPUT FORMAT — IMPORTANT:
-Respond with a single valid JSON object and NOTHING else (no markdown fences, no commentary, no preamble, no explanation). The JSON must follow this exact shape:
+Respond with a single valid JSON object and NOTHING else (no markdown fences, no commentary, no preamble). The JSON must follow this exact shape:
 
 {
-  "caption": "<caption text>",
+  "description": "<full description text>",
   "hooks": ["<hook 1>", "<hook 2>", "<hook 3>"],
-  "hashtags": ["<tag1>", "<tag2>", ...]
+  "tags": ["<tag1>", "<tag2>", ...],
+  "pinnedComment": "<pinned comment text>"
 }
 
-Hashtags must be lowercase strings WITHOUT the # symbol.`;
+Tags must be lowercase strings without # symbol.`;
 
 export interface CopyOutput {
-  caption: string;
+  description: string;
   hooks: string[];
-  hashtags: string[];
+  tags: string[];
+  pinnedComment: string;
 }
 
 export interface CopyResult {
@@ -40,7 +49,7 @@ export interface CopyResult {
   outputTokens: number;
 }
 
-// יוצר קופי על בסיס רעיון. הפלט בשפה של המשתמש.
+// יוצר תיאור YouTube על בסיס רעיון. הפלט בשפה של המשתמש.
 export async function generateCopy(
   idea: string,
   locale: 'he' | 'en'
@@ -48,14 +57,10 @@ export async function generateCopy(
   const anthropic = getAnthropic();
   const ctx = await buildUserContext('copy', locale);
 
-  // System prompt בנוי משני בלוקים:
-  //  1. הוראות הסוכן (יציבות לחלוטין → cacheable מאוד)
-  //  2. ההקשר האישי (יציב פר-משתמש → cacheable)
-  //  שניהם עם cache_control: ephemeral כדי לחסוך 90% מהעלות בקריאה הבאה
   const userContext = renderUserContextForPrompt(ctx);
   const languageInstruction =
     locale === 'he'
-      ? 'CRITICAL: Respond entirely in Hebrew. The caption, hooks, and hashtags must all be in Hebrew (hashtags should still be lowercase Hebrew words without # symbol).'
+      ? 'CRITICAL: Respond entirely in Hebrew. Description, hooks, tags, and pinned comment must all be in Hebrew. Tags should be lowercase Hebrew words.'
       : 'CRITICAL: Respond entirely in English.';
 
   const message = await anthropic.messages.create({
@@ -76,15 +81,13 @@ export async function generateCopy(
     messages: [
       {
         role: 'user',
-        content: `Generate Instagram/TikTok copy for this idea:\n\n${idea}`,
+        content: `Generate a YouTube description package for this video idea:\n\n${idea}`,
       },
     ],
   });
 
-  // עדכון תקציב
   await recordUsage(message.usage);
 
-  // חילוץ JSON מתוך התשובה
   const textBlock = message.content.find((b) => b.type === 'text');
   if (!textBlock || textBlock.type !== 'text') {
     throw new Error('No text in Claude response');

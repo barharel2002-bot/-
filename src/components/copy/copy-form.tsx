@@ -115,9 +115,10 @@ export function CopyForm({ initialBudgetPercent, budgetBlocked }: Props) {
 
       {output && (
         <div className="space-y-4 animate-fade-in">
-          <OutputCard label={t('caption')} text={output.caption} />
+          <OutputCard label={t('description')} text={output.description} />
           <HooksCard label={t('hooks')} hooks={output.hooks} />
-          <HashtagsCard label={t('hashtags')} hashtags={output.hashtags} />
+          <TagsCard label={t('tags')} tags={output.tags} />
+          <OutputCard label={t('pinnedComment')} text={output.pinnedComment} />
 
           <div className="flex justify-end">
             <Button
@@ -181,14 +182,15 @@ function HooksCard({ label, hooks }: { label: string; hooks: string[] }) {
   );
 }
 
-function HashtagsCard({
+function TagsCard({
   label,
-  hashtags,
+  tags,
 }: {
   label: string;
-  hashtags: string[];
+  tags: string[];
 }) {
-  const joined = hashtags.map((h) => `#${h}`).join(' ');
+  // YouTube tags are comma-separated, no #
+  const joined = tags.join(', ');
   return (
     <Card className="space-y-3 p-5">
       <div className="flex items-center justify-between">
@@ -198,12 +200,12 @@ function HashtagsCard({
         <CopyButton text={joined} />
       </div>
       <div className="flex flex-wrap gap-1.5">
-        {hashtags.map((h) => (
+        {tags.map((tag) => (
           <span
-            key={h}
-            className="rounded-full bg-creator-gradient-soft px-2.5 py-1 text-xs text-creator-purple"
+            key={tag}
+            className="rounded bg-creator-gradient-soft px-2 py-0.5 text-xs text-creator-purple"
           >
-            #{h}
+            {tag}
           </span>
         ))}
       </div>

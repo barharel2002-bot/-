@@ -2,7 +2,6 @@ import {
   Lightbulb,
   Video,
   ArrowLeftRight,
-  Eye,
   BookOpen,
   PenLine,
   BarChart3,
@@ -11,6 +10,9 @@ import {
   TrendingUp,
   ArrowLeft,
   ArrowRight,
+  Compass,
+  Type,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
@@ -51,24 +53,28 @@ async function getDisplayName(): Promise<string | null> {
 
 type FeatureKey =
   | 'ideas'
+  | 'findNext'
+  | 'ytTitles'
+  | 'ytDescription'
+  | 'ytThumbnail'
   | 'analyze'
   | 'channels'
   | 'swipe'
-  | 'mirror'
   | 'learn'
-  | 'copy'
   | 'analytics'
   | 'settings';
 
 const FEATURES: { key: FeatureKey; href: string; icon: typeof Lightbulb }[] = [
   { key: 'ideas', href: '/ideas', icon: Lightbulb },
-  { key: 'channels', href: '/channels', icon: TrendingUp },
+  { key: 'findNext', href: '/find-next', icon: Compass },
+  { key: 'ytTitles', href: '/title', icon: Type },
+  { key: 'ytDescription', href: '/copy', icon: PenLine },
+  { key: 'ytThumbnail', href: '/thumbnail', icon: ImageIcon },
   { key: 'analyze', href: '/analyze', icon: Video },
-  { key: 'swipe', href: '/swipe/videos', icon: ArrowLeftRight },
-  { key: 'mirror', href: '/mirror', icon: Eye },
-  { key: 'learn', href: '/learn', icon: BookOpen },
-  { key: 'copy', href: '/copy', icon: PenLine },
+  { key: 'channels', href: '/channels', icon: TrendingUp },
   { key: 'analytics', href: '/analytics', icon: BarChart3 },
+  { key: 'swipe', href: '/swipe/videos', icon: ArrowLeftRight },
+  { key: 'learn', href: '/learn', icon: BookOpen },
   { key: 'settings', href: '/settings', icon: SettingsIcon },
 ];
 
