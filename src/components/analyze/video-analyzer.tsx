@@ -21,7 +21,7 @@ import { extractFrames } from '@/lib/video/extract-frames';
 import type { Locale } from '@/i18n/routing';
 import type { VideoAnalysisResult } from '@/types';
 
-const MAX_FILE_BYTES = 200 * 1024 * 1024; // 200MB
+const MAX_FILE_BYTES = 5 * 1024 * 1024 * 1024; // 5GB. The video itself is never uploaded — frames are extracted in the browser. The cap protects against pathological devices running out of memory.
 
 type Phase = 'idle' | 'extracting' | 'uploading' | 'analyzing' | 'done' | 'error';
 

@@ -17,7 +17,8 @@
     "analytics": "Performance",
     "settings": "Settings",
     "more": "More",
-    "channels": "Channel analysis"
+    "channels": "Channel analysis",
+    "findNext": "Find your next video"
   },
   "home": {
     "greeting": "Welcome back",
@@ -172,9 +173,65 @@
       "signOut": "Sign out"
     }
   },
+  "findNext": {
+    "title": "Find your next video",
+    "subtitle": "Stuck and not sure what to create now? Answer 5 short questions and AI will return a strategic direction, 5 concrete video ideas you can shoot tomorrow, and 2-3 tips tailored to exactly what's blocking you.",
+    "explainerTitle": "Who this is for",
+    "explainerBullets": {
+      "stuck": "Creators who have ideas but don't know what to focus on right now",
+      "specific": "5 ideas with a real hook to say — not 'do a tutorial'",
+      "tailored": "Every idea is reasoned for *you* — based on the creator you are",
+      "fast": "Result in 15 seconds, not 15 strategy sessions"
+    },
+    "q": {
+      "niche": {
+        "label": "What's your content niche?",
+        "placeholder": "Fitness & body recomposition · Investing for beginners · Home cooking · ..."
+      },
+      "audience": {
+        "label": "Who is your target audience?",
+        "placeholder": "Students aged 18-25 just starting · Creators at the beginning of their journey · ..."
+      },
+      "worked": {
+        "label": "What worked well for you recently?",
+        "placeholder": "Reel about a mistake I made starting out. Personal storytelling. Short clips."
+      },
+      "blocks": {
+        "label": "What's blocking you / what's not working?",
+        "placeholder": "Not sure if I should keep doing educational or pivot to personal. Views are dropping."
+      },
+      "format": {
+        "label": "Preferred format",
+        "options": {
+          "short": "Shorts only",
+          "long": "Long-form only",
+          "both": "Mix"
+        }
+      }
+    },
+    "submit": "Find my direction",
+    "thinking": "Thinking...",
+    "error": "Submission failed. Try again.",
+    "result": {
+      "title": "Here's your direction",
+      "summary": "Strategic summary",
+      "recommendedFormat": "Recommended format",
+      "ideas": "5 video ideas",
+      "hookPrefix": "Hook",
+      "tips": "Tailored tips",
+      "again": "Ask again"
+    }
+  },
   "copy": {
     "title": "Writing",
-    "subtitle": "Give an idea or context. Get a caption, 3 hooks, and hashtags.",
+    "subtitle": "An AI agent that writes ready-to-publish captions, 3 different opening hooks, and 12 hashtags — from your raw idea, in your tone, in your language.",
+    "explainerTitle": "How this helps creators",
+    "explainerBullets": {
+      "speed": "Raw sentence in, ready-to-publish post out — in 15 seconds",
+      "options": "3 hooks = more angles for different posts, or for A/B testing",
+      "memory": "When you mark 'not a fit' with a reason, the agent remembers and improves on every next call",
+      "hashtags": "Hashtags are tailored to your niche, not generic #instagood"
+    },
     "ideaLabel": "The idea",
     "ideaPlaceholder": "What do you want to write? Video content, free context, or an idea from your idea board.",
     "generate": "Generate copy",
@@ -197,13 +254,21 @@
   },
   "analyze": {
     "title": "Video check",
-    "subtitle": "Upload a raw video before posting. Get a full diagnostic — should you post, when, and where.",
+    "subtitle": "Upload a raw video *before* posting — Claude (AI Vision) analyzes it frame by frame and returns a full diagnostic: whether to post at all, when (day & hour), which platform fits best (Instagram / TikTok / YouTube), how strong the hook is, how the video connects to your message, and concrete improvement tips. Your video never leaves your device — only frames are sent to AI.",
+    "explainerTitle": "What you get back",
+    "explainerBullets": {
+      "platform": "Platform recommendation — where this video will land best",
+      "timing": "Optimal day and hour to publish",
+      "hook": "Hook quality score (strong / medium / weak) with reasoning",
+      "message": "Whether the video actually connects to your creator 'why'",
+      "tips": "Concrete improvement tips — not clichés"
+    },
     "uploadCta": "Pick a video from your gallery",
-    "uploadHint": "MP4 / MOV / WebM, up to 200MB",
+    "uploadHint": "MP4 / MOV / WebM, up to 5GB",
     "extracting": "Extracting frames...",
     "uploading": "Sending for analysis...",
     "analyzing": "Claude is analyzing...",
-    "tooLarge": "File is over 200MB. Compress it before uploading.",
+    "tooLarge": "File is over 5GB. Compress it before uploading.",
     "extractFailed": "Couldn't extract frames from the video. The codec may not be supported.",
     "analyzeFailed": "Analysis failed",
     "analyzeAgain": "Try another video",

@@ -13,6 +13,7 @@ import {
   BarChart3,
   ArrowLeftRight,
   TrendingUp,
+  Compass,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/routing';
@@ -31,7 +32,7 @@ type NavItem = {
 const SIDEBAR_ITEMS: NavItem[] = [
   { href: '/', labelKey: 'home', icon: Home },
   { href: '/ideas', labelKey: 'ideas', icon: Lightbulb },
-  { href: '/mirror', labelKey: 'mirror', icon: Eye },
+  { href: '/find-next', labelKey: 'findNext', icon: Compass },
   { href: '/copy', labelKey: 'copy', icon: PenLine },
   { href: '/analyze', labelKey: 'analyze', icon: Video },
   { href: '/channels', labelKey: 'channels', icon: TrendingUp },
