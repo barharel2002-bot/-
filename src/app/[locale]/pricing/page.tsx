@@ -9,35 +9,47 @@ interface Tier {
   id: 'free' | 'creator' | 'pro';
   icon: typeof Sparkles;
   accent: string;
-  href: string;
+  href: string; // internal route OR external LS checkout URL (set via env)
+  external: boolean;
   bullets: string[];
   highlight?: boolean;
 }
 
-const TIERS: Tier[] = [
-  {
-    id: 'free',
-    icon: Sparkles,
-    accent: 'border-border',
-    href: '/auth',
-    bullets: ['ai5', 'titles', 'community', 'noCard'],
-  },
-  {
-    id: 'creator',
-    icon: Zap,
-    accent: 'border-creator-purple ring-1 ring-creator-purple/20',
-    href: '/auth?intent=creator',
-    bullets: ['ai50', 'allFeatures', 'channelLink', 'priority', 'cancel'],
-    highlight: true,
-  },
-  {
-    id: 'pro',
-    icon: Crown,
-    accent: 'border-creator-orange',
-    href: '/auth?intent=pro',
-    bullets: ['unlimited', 'multiChannel', 'alerts', 'earlyAccess', 'cancel'],
-  },
-];
+function buildTiers(): Tier[] {
+  // External checkout URLs come from env. If not set yet, fall back to /auth so
+  // the button still works (user lands on the auth page; we'll redirect them
+  // through checkout once env is wired).
+  const creatorCheckout = process.env.NEXT_PUBLIC_LS_CHECKOUT_CREATOR;
+  const proCheckout = process.env.NEXT_PUBLIC_LS_CHECKOUT_PRO;
+
+  return [
+    {
+      id: 'free',
+      icon: Sparkles,
+      accent: 'border-border',
+      href: '/auth',
+      external: false,
+      bullets: ['ai5', 'titles', 'community', 'noCard'],
+    },
+    {
+      id: 'creator',
+      icon: Zap,
+      accent: 'border-creator-purple ring-1 ring-creator-purple/20',
+      href: creatorCheckout ?? '/auth?intent=creator',
+      external: !!creatorCheckout,
+      bullets: ['ai50', 'allFeatures', 'channelLink', 'priority', 'cancel'],
+      highlight: true,
+    },
+    {
+      id: 'pro',
+      icon: Crown,
+      accent: 'border-creator-orange',
+      href: proCheckout ?? '/auth?intent=pro',
+      external: !!proCheckout,
+      bullets: ['unlimited', 'multiChannel', 'alerts', 'earlyAccess', 'cancel'],
+    },
+  ];
+}
 
 export default async function PricingPage({
   params,
@@ -52,6 +64,7 @@ export default async function PricingPage({
 function Content() {
   const t = useTranslations('pricing');
   const locale = useLocale();
+  const tiers = buildTiers();
 
   return (
     <div className="space-y-12 animate-fade-in pt-4">
@@ -63,7 +76,7 @@ function Content() {
       </header>
 
       <div className="grid gap-5 md:grid-cols-3">
-        {TIERS.map((tier) => {
+        {tiers.map((tier) => {
           const Icon = tier.icon;
           return (
             <Card
@@ -102,14 +115,25 @@ function Content() {
                   </li>
                 ))}
               </ul>
-              <Link href={tier.href} className="mt-6">
-                <Button
-                  className="w-full"
-                  variant={tier.highlight ? 'default' : 'outline'}
-                >
-                  {t(`tiers.${tier.id}.cta`)}
-                </Button>
-              </Link>
+              {tier.external ? (
+                <a href={tier.href} className="mt-6 block" rel="noreferrer">
+                  <Button
+                    className="w-full"
+                    variant={tier.highlight ? 'default' : 'outline'}
+                  >
+                    {t(`tiers.${tier.id}.cta`)}
+                  </Button>
+                </a>
+              ) : (
+                <Link href={tier.href} className="mt-6">
+                  <Button
+                    className="w-full"
+                    variant={tier.highlight ? 'default' : 'outline'}
+                  >
+                    {t(`tiers.${tier.id}.cta`)}
+                  </Button>
+                </Link>
+              )}
             </Card>
           );
         })}

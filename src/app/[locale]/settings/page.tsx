@@ -7,7 +7,9 @@ import { WhyForm } from '@/components/settings/why-form';
 import { PushToggle } from '@/components/settings/push-toggle';
 import { AccountCard } from '@/components/settings/account-card';
 import { BudgetCard } from '@/components/settings/budget-card';
+import { SubscriptionCard } from '@/components/settings/subscription-card';
 import { getBudgetStatus } from '@/lib/ai/budget';
+import { getUserSubscription } from '@/lib/billing/subscription';
 import { DEMO_PROFILE } from '@/lib/demo/data';
 import type { BudgetStatus } from '@/lib/ai/budget';
 
@@ -30,9 +32,25 @@ export default async function SettingsPage({
   setRequestLocale(locale);
 
   const demo = !isSupabaseConfigured();
-  const [profile, email, budget] = demo
-    ? [DEMO_PROFILE, 'demo@creator-mode.local', DEMO_BUDGET]
-    : await Promise.all([fetchProfile(), fetchUserEmail(), getBudgetStatus()]);
+  const [profile, email, budget, sub] = demo
+    ? [
+        DEMO_PROFILE,
+        'demo@creator-mode.local',
+        DEMO_BUDGET,
+        {
+          tier: 'free' as const,
+          status: null,
+          currentPeriodEnd: null,
+          cancelAtPeriodEnd: false,
+          lsSubscriptionId: null,
+        },
+      ]
+    : await Promise.all([
+        fetchProfile(),
+        fetchUserEmail(),
+        getBudgetStatus(),
+        getUserSubscription(),
+      ]);
 
   const vapidKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? null;
   const hasSubscription = !!profile?.push_subscription;
@@ -47,6 +65,8 @@ export default async function SettingsPage({
         forWhomInitial={profile?.for_whom ?? ''}
         frequencyInitial={profile?.reminder_frequency ?? 'daily_morning'}
       />
+
+      <SubscriptionCard sub={sub} locale={locale as 'he' | 'en'} />
 
       <PushToggle vapidPublicKey={vapidKey} hasSubscription={hasSubscription} />
 

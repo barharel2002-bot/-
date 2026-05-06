@@ -11,11 +11,22 @@ export const runtime = 'nodejs';
 //                      subscription_resumed, subscription_expired, subscription_paused
 // Set the signing secret in Netlify env: LS_WEBHOOK_SECRET
 
-const TIER_BY_VARIANT: Record<string, 'creator' | 'pro'> = {
-  // FILL IN after creating products in Lemon Squeezy:
-  // [process.env.LS_VARIANT_ID_CREATOR ?? '']: 'creator',
-  // [process.env.LS_VARIANT_ID_PRO ?? '']: 'pro',
+// FILL IN after creating products in Lemon Squeezy:
+// 1. set LS_VARIANT_ID_CREATOR + LS_VARIANT_ID_PRO env vars in Netlify
+// 2. uncomment lines below
+const TIER_BY_VARIANT: Record<string, 'creator' | 'pro'> = (() => {
+  const m: Record<string, 'creator' | 'pro'> = {};
+  if (process.env.LS_VARIANT_ID_CREATOR) m[process.env.LS_VARIANT_ID_CREATOR] = 'creator';
+  if (process.env.LS_VARIANT_ID_PRO) m[process.env.LS_VARIANT_ID_PRO] = 'pro';
+  return m;
+})();
+
+// Tier → monthly AI budget cents (existing budget guardrail re-uses this)
+const TIER_BUDGET_CENTS: Record<'creator' | 'pro', number> = {
+  creator: 500, // $5/month — covers ~50 AI calls
+  pro: 5000, // $50/month — effectively unlimited
 };
+const FREE_BUDGET_CENTS = 50; // ~5-10 AI calls
 
 // Status mapping: Lemon Squeezy → our enum
 const VALID_STATUSES = new Set([
@@ -114,6 +125,11 @@ export async function POST(request: Request) {
         updated_at: new Date().toISOString(),
       })
       .eq('user_id', userId);
+    // Reset AI budget back to Free tier
+    await supabase
+      .from('profiles')
+      .update({ ai_monthly_budget_cents: FREE_BUDGET_CENTS })
+      .eq('id', userId);
   } else {
     await supabase.from('subscriptions').upsert({
       user_id: userId,
@@ -126,6 +142,11 @@ export async function POST(request: Request) {
       cancel_at_period_end: cancelled,
       updated_at: new Date().toISOString(),
     });
+    // Sync AI budget to match tier (so existing budget guardrail naturally gates)
+    await supabase
+      .from('profiles')
+      .update({ ai_monthly_budget_cents: TIER_BUDGET_CENTS[tier] })
+      .eq('id', userId);
   }
 
   return NextResponse.json({ ok: true });
