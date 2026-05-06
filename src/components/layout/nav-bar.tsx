@@ -6,7 +6,6 @@ import {
   Plus,
   Sparkles,
   Settings as SettingsIcon,
-  Eye,
   Video,
   BookOpen,
   PenLine,
@@ -42,12 +41,12 @@ const SIDEBAR_ITEMS: NavItem[] = [
   { href: '/settings', labelKey: 'settings', icon: SettingsIcon },
 ];
 
-// ניווט תחתון של מובייל — 5 פריטים בלבד (Home, Ideas, +, Mirror, Settings)
+// ניווט תחתון של מובייל — 5 פריטים בלבד (Home, Ideas, +, FindNext, Settings)
 const MOBILE_ITEMS: NavItem[] = [
   { href: '/', labelKey: 'home', icon: Home },
   { href: '/ideas', labelKey: 'ideas', icon: Lightbulb },
   { href: '#add-idea', labelKey: 'addIdea', icon: Plus, primary: true },
-  { href: '/mirror', labelKey: 'mirror', icon: Eye },
+  { href: '/find-next', labelKey: 'findNext', icon: Compass },
   { href: '/settings', labelKey: 'settings', icon: SettingsIcon },
 ];
 
